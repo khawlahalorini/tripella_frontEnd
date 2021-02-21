@@ -1,10 +1,16 @@
 import './App.css';
 import Login from './user/Login';
+import Profile from './user/Profile';
 import Register from './user/Register'
+
 
 function App() {
   return (
-<Register></Register>
+<div>
+
+<Profile/>
+
+</div>
   );
 }
 
