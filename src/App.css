@@ -4,6 +4,7 @@
 
 
 
+
 .cards {
 	display: grid;
 	grid-template-columns: auto auto auto auto;
@@ -30,3 +31,9 @@
   background-size: cover;
   border:2px solid #333333;
 }
+
+.dropdown{
+  left:270px;
+}
+
+

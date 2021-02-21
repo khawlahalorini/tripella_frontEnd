@@ -3,6 +3,7 @@ import Login from './user/Login';
 import Register from './user/Register'
 import Home from './Home'
 import axios from "axios";
+import Profile from './user/Profile';
 import DropdownButton from './DropdownButton';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Nav,} from 'react-bootstrap'
@@ -39,10 +40,20 @@ export default class Navs extends Component {
               console.log(error);
             });
       };
+      profileHandler = (user) =>{
+        axios 
+        .post("./user/Login.js", user)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
     render() {
         return (
     <Router>
-    <div>
+    <div class="nav">
       <Nav variant="tabs">
   <Nav.Item>
     <Nav.Link href="/home">Home</Nav.Link>
@@ -56,7 +67,7 @@ export default class Navs extends Component {
   <Nav.Item>
     <Nav.Link href="/allPlaces">All Places</Nav.Link>
   </Nav.Item>
-  <DropdownButton />
+  <DropdownButton  />
 </Nav>
 
     </div>
@@ -73,6 +84,10 @@ export default class Navs extends Component {
             path="/login"
             component={() => <Login login={this.loginHandler} />
             }
+          ></Route>
+          <Route
+            path="/profile"
+            component={() => <Profile register={this.profileHandler} />}
           ></Route>
         </div>
     </Router>
