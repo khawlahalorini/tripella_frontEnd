@@ -1,17 +1,21 @@
 import './App.css';
-import Login from './user/Login';
-import Profile from './user/Profile';
-import Register from './user/Register'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react'
+import Navs from './Navs';
 
 
-function App() {
-  return (
-<div>
+export default class App extends Component {
+  state = {
+    user: null
+  };
 
-<Profile/>
-
-</div>
-  );
+  
+  render() {
+    return (
+    <div class="body">
+      <Navs />
+    </div>
+    )
+  }
 }
-
-export default App;

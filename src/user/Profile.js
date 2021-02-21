@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProfileEditForm from './ProfileEditForm';
+// import ProfileEditForm from './ProfileEditForm';
 // import axios from 'axios';
 
 export default class Profile extends Component {
