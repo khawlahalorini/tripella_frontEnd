@@ -3,7 +3,7 @@ import Login from './user/Login';
 import Register from './user/Register'
 import Home from './Home'
 import axios from "axios";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -40,8 +40,8 @@ export default class Navs extends Component {
       };
     render() {
         return (
-            <Router>
-        <div>
+    <Router>
+    <div>
       <Nav variant="tabs">
   <Nav.Item>
     <Nav.Link href="/home">Home</Nav.Link>

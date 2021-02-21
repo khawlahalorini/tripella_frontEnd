@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react'
 import Navs from './Navs';
 
+
 export default class App extends Component {
   state = {
     user: null
@@ -11,7 +12,7 @@ export default class App extends Component {
   
   render() {
     return (
-    <div>
+    <div class="body">
       <Navs />
     </div>
     )
