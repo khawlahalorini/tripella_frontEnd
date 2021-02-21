@@ -2,7 +2,63 @@
   padding: 30px;
 }
 .dropdown{
-  left:270px;
+  align-self: flex-end;
 }
 
+body {
+	padding: 20px;
+	background-color: #ffffff;
+	
+}
 
+img {
+	width: 350px;
+	height: 500px;
+}
+
+/* add game even row style */
+/* 
+.even_row_color col-md-4:nth-of-type(even) {
+  background-color: #f3f3f3;
+} */
+.col-md-4 {
+	padding-top: 10px; 
+	
+	font-size: 110%;
+	font-weight: bold;
+	border: 1px solid #cbcbcb;
+	padding: 5px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	border-radius: 5px;
+	justify-content: space-evenly;
+}
+
+/* 
+home page style cards  */
+.cards {
+	margin: 0 auto;
+	max-width: 10px;
+	display: grid;
+	grid-auto-rows: auto;
+	gap: 20px;
+	font-family: sans-serif;
+	padding-top: 30px;
+}
+
+.cards * {
+	box-sizing: border-box;
+}
+
+.card__image {
+	width: 150px;
+	height:150px;
+	
+	display: block;
+  background-size: cover;
+	/* border-top: 2px solid #333333;
+	border-right: 2px solid #333333;
+	border-left: 2px solid  */
+  border:2px solid #333333;
+}

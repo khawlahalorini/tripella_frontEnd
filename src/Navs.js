@@ -3,6 +3,7 @@ import Login from './user/Login';
 import Register from './user/Register'
 import Home from './Home'
 import axios from "axios";
+import TripList from './TripList'
 import Profile from './user/Profile';
 import DropdownButton from './DropdownButton';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -42,7 +43,7 @@ export default class Navs extends Component {
       };
       profileHandler = (user) =>{
         axios 
-        .post("./user/Login.js", user)
+        .post("./user/Peofile.js", user)
         .then((response) => {
           console.log(response);
         })
@@ -50,6 +51,16 @@ export default class Navs extends Component {
           console.log(error);
         });
     };
+    TripListHandler = (user) =>{
+      axios 
+      .post("./user/TripList.js", user)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
     render() {
         return (
     <Router>
@@ -88,6 +99,10 @@ export default class Navs extends Component {
           <Route
             path="/profile"
             component={() => <Profile register={this.profileHandler} />}
+          ></Route>
+                    <Route
+            path="/tripList"
+            component={() => <TripList register={this.TripListHandler} />}
           ></Route>
         </div>
     </Router>
