@@ -20,9 +20,9 @@ export default class DropdownButton extends Component {
     render() {
         return (
             <Router>
-            <div>
+            <div class="dropdown">
                 <Dropdown>
-                    <Dropdown.Toggle variant="light" id="dropdown-basic">
+                    <Dropdown.Toggle variant="link" id="dropdown-basic">
                          ☰
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -33,10 +33,7 @@ export default class DropdownButton extends Component {
                 </Dropdown>
             </div>
             <div>
-         <Route
-            path="/profile"
-            component={() => <Profile register={this.profileHandler} />}
-          ></Route>
+
           {/* <Route
             path="/register"
             component={() => <Register register={this.registerHandler} />}
