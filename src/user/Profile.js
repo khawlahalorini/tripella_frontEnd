@@ -29,6 +29,8 @@ export default class Profile extends Component {
             //     <h3>Bio</h3>
             //     {/* <ProfileEditForm/> */}
             // </div>
+
+            
         )
     }
 }

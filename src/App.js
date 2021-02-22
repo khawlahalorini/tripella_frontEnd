@@ -6,10 +6,9 @@ import AllPlaces from './AllPlaces';
 
 
 
+
 export default class App extends Component {
-  state = {
-    user: null
-  };
+
 
   
   render() {
