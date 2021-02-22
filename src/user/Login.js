@@ -7,23 +7,15 @@ export default class login extends Component {
         return (
             <div>
                 <Container>
-                <Col>
-                <Row>
                     <Form.Group>
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" name="emailAddress"></Form.Control>
                     </Form.Group> 
-                    </Row>
-                    <Row>
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password"></Form.Control>
                     </Form.Group>
-                    </Row>
-                    <Row>
                     <Button variant="light">Login</Button>
-                   </Row> 
-                   </Col>
                 </Container>
             </div>
         )

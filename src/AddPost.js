@@ -7,7 +7,8 @@ export default class AddPost extends Component {
         return (
             <div>
             <Container>
-            <Row>
+                <Row>
+                    <Col>
                 <Form.Group>
                     <Form.Label>Choose Type</Form.Label>
                     <Form.Control as="select" name="type">
@@ -16,35 +17,37 @@ export default class AddPost extends Component {
                     <option>Amusement Park</option>
                     <option>Markets</option>
                     </Form.Control>
-                </Form.Group> 
+                </Form.Group>
+                 </Col>
+                 <Col>
                 <Form.Group>
                     <Form.Label>Place Name</Form.Label>
                     <Form.Control type="text" name="name"></Form.Control>
                 </Form.Group> 
-                </Row>
-                <Row>
+               </Col> 
+               </Row>
                 <Form.Group>
                     <Form.Label>Description</Form.Label>
                     <Form.Control type="textarea" name="description"></Form.Control>
                 </Form.Group> 
-                </Row>
-                <Row>
                 <Form.Group>
                     <Form.Label>information</Form.Label>
                     <Form.Control type="text" name="information"></Form.Control>
                 </Form.Group> 
-                </Row>
                 <Row>
+                    <Col>
                 <Form.Group>
                     <Form.Label>Country</Form.Label>
                     <Form.Control type="text" name="country"></Form.Control>
                 </Form.Group>
+                </Col>
+                 <Col>
                 <Form.Group>
                     <Form.Label>city</Form.Label>
                     <Form.Control type="text" name="city"></Form.Control>
                 </Form.Group>
-                </Row>
-                <Row>
+                </Col> 
+               </Row>
                 <Form.Group>
         <Form.File
           className="position-relative"
@@ -55,10 +58,7 @@ export default class AddPost extends Component {
           feedbackTooltip
         />
       </Form.Group>
-                </Row>
-                <Row>
                 <Button variant="light">Add</Button>
-               </Row> 
             </Container>
             </div>
         )
