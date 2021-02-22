@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import ProfileEditForm from './ProfileEditForm';
+import ProfileEditForm from './ProfileEditForm';
 import { Card ,ListGroupItem,ListGroup } from 'react-bootstrap'
 
 // import axios from 'axios';
