@@ -21,7 +21,7 @@ export default class login extends Component {
                     </Form.Group>
                     </Row>
                     <Row>
-                    <Button variant="primary">Login</Button>
+                    <Button variant="light">Login</Button>
                    </Row> 
                    </Col>
                 </Container>

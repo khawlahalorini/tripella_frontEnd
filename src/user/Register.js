@@ -51,7 +51,7 @@ export default class login extends Component {
           </Form.Group>
                     </Row>
                     <Row>
-                    <Button variant="primary">Register</Button>
+                    <Button variant="light">Register</Button>
                    </Row> 
                    </Col>
                 </Container>
