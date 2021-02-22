@@ -3,7 +3,7 @@ const ARRAY = {
         {
             "id": 346364,
       "title": "Resturant",
-      "pic": "./img2/pic.jpg",
+      "poster_path": "img2/pic.jpg",
       "overview": "This italin Resturant is lavely places in KSA",
       "release_date": "2017-09-05"
      },
