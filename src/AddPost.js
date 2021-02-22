@@ -7,7 +7,6 @@ export default class AddPost extends Component {
         return (
             <div>
             <Container>
-            <Col>
             <Row>
                 <Form.Group>
                     <Form.Label>Choose Type</Form.Label>
@@ -18,8 +17,6 @@ export default class AddPost extends Component {
                     <option>Markets</option>
                     </Form.Control>
                 </Form.Group> 
-                </Row>
-                <Row>
                 <Form.Group>
                     <Form.Label>Place Name</Form.Label>
                     <Form.Control type="text" name="name"></Form.Control>
@@ -39,8 +36,12 @@ export default class AddPost extends Component {
                 </Row>
                 <Row>
                 <Form.Group>
-                    <Form.Label>location</Form.Label>
-                    <Form.Control type="text" name="loction"></Form.Control>
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control type="text" name="country"></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>city</Form.Label>
+                    <Form.Control type="text" name="city"></Form.Control>
                 </Form.Group>
                 </Row>
                 <Row>
@@ -58,7 +59,6 @@ export default class AddPost extends Component {
                 <Row>
                 <Button variant="light">Add</Button>
                </Row> 
-               </Col>
             </Container>
             </div>
         )
