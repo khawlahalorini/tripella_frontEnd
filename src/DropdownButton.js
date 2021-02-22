@@ -28,18 +28,14 @@ export default class DropdownButton extends Component {
                     <Dropdown.Menu>
                         <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                         <Dropdown.Item href="tripList">Trip List</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        <Dropdown.Item href="wishList">Wish List</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
             <div>
 
 
-          {/* <Route
-            path="/login"
-            component={() => <Login login={this.loginHandler} />
-            }
-          ></Route>  */}
+
         </div>
          </Router>
         )

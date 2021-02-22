@@ -5,10 +5,9 @@ import Navs from './Navs';
 
 
 
+
 export default class App extends Component {
-  state = {
-    user: null
-  };
+
 
   
   render() {
