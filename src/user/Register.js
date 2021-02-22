@@ -7,38 +7,32 @@ export default class login extends Component {
         return (
             <div>
                 <Container>
-                <Col>
-                <Row>
                     <Form.Group>
                         <Form.Label>First Name</Form.Label>
                         <Form.Control type="text" name="fristName"></Form.Control>
                     </Form.Group> 
-                    </Row>
-                    <Row>
                     <Form.Group>
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" name="lastName"></Form.Control>
-                    </Form.Group> 
-                    </Row>
-                    <Row>
+                    </Form.Group>
                     <Form.Group>
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" name="emailAddress"></Form.Control>
                     </Form.Group> 
-                    </Row>
                     <Row>
+                        <Col>
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password"></Form.Control>
                     </Form.Group>
-                    </Row>
-                    <Row>
+                    </Col>
+                    <Col>
                     <Form.Group>
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control type="password" name="password"></Form.Control>
                     </Form.Group> 
+                    </Col>
                     </Row>
-                    <Row>
                     <Form.Group>
             <Form.File
               className="position-relative"
@@ -49,11 +43,7 @@ export default class login extends Component {
               feedbackTooltip
             />
           </Form.Group>
-                    </Row>
-                    <Row>
-                    <Button variant="primary">Register</Button>
-                   </Row> 
-                   </Col>
+                    <Button variant="light">Register</Button>
                 </Container>
                 </div>
         )

@@ -7,16 +7,6 @@ import Profile from './user/Profile';
 
 export default class DropdownButton extends Component {
 
-    profileHandler = (user) =>{
-        axios 
-        .post("./user/Login.js", user)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
     render() {
         return (
             <Router>
@@ -27,6 +17,7 @@ export default class DropdownButton extends Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                        <Dropdown.Item href="addPost">Add Place</Dropdown.Item>
                         <Dropdown.Item href="tripList">Trip List</Dropdown.Item>
                         <Dropdown.Item href="wishList">Wish List</Dropdown.Item>
                     </Dropdown.Menu>
