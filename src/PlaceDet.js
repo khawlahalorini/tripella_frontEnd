@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PlacesPIc from './PlacesPIc'
+import WishList from './WishList'
 
 
 
