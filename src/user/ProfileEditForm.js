@@ -1,23 +1,11 @@
 import React, { Component } from 'react'
-import { Card, ListGroupItem, ListGroup } from 'react-bootstrap'
 
 export default class ProfileEditForm extends Component {
 
     render() {
         return (
             <div>
-
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" />
-                    <Card.Body>
-                        <Card.Title>username</Card.Title>
-                        {/* <Card.Title>{this.state.username}</Card.Title> */}
-                        <Card.Text>Email</Card.Text>
-                        {/* <Card.Text>{this.state.emailAddress}</Card.Text> */}
-                        <Card.Text>Bio</Card.Text>
-                    </Card.Body>
-                </Card>
-                {/* <form
+                <form
                 //  onSubmit={this.handleSubmit}
                 >
                     <div>
@@ -47,11 +35,10 @@ export default class ProfileEditForm extends Component {
                             feedbackTooltip
                         />
                     </div> */}
-                {/* <div>
+                    <div>
                         <input type="submit" value="Save"></input>
                     </div>
-                </form> */}
-
+                </form>
             </div>
         )
     }
