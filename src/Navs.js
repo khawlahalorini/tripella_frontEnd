@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from './AllPlaces';
-import AddPost from './AddPost';
 
 
 // import { Alert } from 'bootstrap';
@@ -63,7 +62,7 @@ export default class Navs extends Component {
       // all places
       allplacesHandler = (user) => {
         axios 
-            .post("./allPlaces.js", user)
+            .post("./Home.js", user)
             .then((response) => {
               console.log(response);
             })
@@ -85,7 +84,7 @@ export default class Navs extends Component {
     //trip list 
     TripListHandler = (user) =>{
       axios 
-      .post("./TripList.js", user)
+      .post("./user/TripList.js", user)
       .then((response) => {
         console.log(response);
       })
@@ -96,23 +95,13 @@ export default class Navs extends Component {
   // wish list 
   WishListHandler = (user) =>{
     axios 
-    .post("./WishList.js", user)
+    .post("./user/TripList.js", user)
     .then((response) => {
       console.log(response);
     })
     .catch((error) => {
       console.log(error);
     });
-};
-AddPostHandler = (user) =>{
-  axios 
-  .post("./AddPost.js", user)
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 };
 // folter 
 handleFilterClick = (filter)=>{
@@ -149,7 +138,7 @@ handleFilterClick = (filter)=>{
     <div>
          <Route
             path="/home"
-            component={() => <Home home={this.homeHandler} />}
+            component={() => <Home register={this.homeHandler} />}
           ></Route>
           <Route
             path="/register"
@@ -160,27 +149,22 @@ handleFilterClick = (filter)=>{
             component={() => <Login login={this.loginHandler} />
             }
           ></Route>
-            <Route
+                    <Route
             path="/allplaces"
-            component={() => <AllPlaces onClick={this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
+            component={() => <AllPlaces allplaces={this.allplacesHandler} />
             }
           ></Route>
-          {/* dropdown list */}
           <Route
             path="/profile"
             component={() => <Profile profile={this.profileHandler} />}
-          ></Route>            
-          <Route
-            path="/addPost"
-            component={() => <AddPost addPost={this.AddPostHandler} />}
           ></Route>
-            <Route
+                    <Route
             path="/tripList"
             component={() => <TripList tripList={this.TripListHandler} />}
           ></Route>
           <Route
             path="/wishList"
-            component={() => <WishList onClick={this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
+            component={() => <WishList wishList={this.WishListHandler} />
             }
           ></Route> 
         </div>
