@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PlacesPIc from './PlacesPIc'
 
 
+
+
 export default class PlaceDet extends Component {
     render() {
         return (
@@ -17,8 +19,9 @@ export default class PlaceDet extends Component {
       <p>{this.props.places.overview}</p>
     </div>
     {/* <button class="w3-button w3-xlarge w3-circle w3-yellow black">
-    <span class="glyphicon glyphicon-heart" aria-hidden="true">Like</span> 
+    <span class="fa fa-heart" aria-hidden="true"></span> 
     </button> */}
+    
     <button class="w3-button w3-block w3-dark-grey">Add to your trip </button>
   </div>
 
