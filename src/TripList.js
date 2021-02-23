@@ -1,26 +1,82 @@
 import React, { Component } from 'react'
 import './App.css';
+import axios from 'axios';
+import PlacesPIc from './PlacesPIc';
 export default class TripList extends Component {
+    // constructor(props) {
+    //     super(props)
 
+    //     this.state = {
+    //         trip: []
+    //     }
+    // }
+
+    componentDidMount() {
+        this.loadTripList();
+    }
+
+    loadTripList = () => {
+        // axios.get("/tripella/tripList/index")
+        // .then(response =>{
+        //     console.log(response)
+        //     this.setState({
+        //         trip: response.data
+        //     })
+        // })
+        // .catch(error =>{
+        //     console.log("Error retreiving trip !!");
+        //     console.log(error);
+        // })
+    }
+
+    deleteTrip = (id) => {
+        //     axios.delete(`/tripella/tripList/delete?id=${id}`, {
+        //         // headers: {
+        //         //     "Authorization": "Bearer " + localStorage.getItem("token")
+        //         // }
+        //     })
+        //         .then(response => {
+        //             console.log("Deleted!")
+        //             const updatedTripList = [...this.state.trip];
+        //             const index = updatedTripList.findIndex(x => x.id === id);
+
+        //             if (index !== -1) {
+        //                 updatedTripList.splice(index, 1)
+
+        //                 this.setState({
+        //                     trip: updatedTripList
+        //                 })
+        //             }
+        // this.loadAuthorList();
+
+        //         })
+        //         .catch(error => {
+        //             console.log("Error Deleting Author!")
+        //             console.log(error)
+        //         })
+    }
     render() {
 
 
         return (
 
-            <div className="card__content">
-                <h2>Garden</h2>
-                <img className="card__image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAMAAAAt85rTAAAANlBMVEX////n6Om8vsDr7O37+/vJy83f4OG5u77T1dbk5ebx8vK9v8Hi4+TCxMbs7e7Q0dP19vbGyMn2h81vAAADG0lEQVR4nO3c65aaMBRA4YkIITJcfP+XLcJwiSQoFiUn7u9X12K6Frs5k4Dt9OcHAAAAAAAAAAAAAAAAADB3bqrLpTn6Lt6nMqplVKyJamCSo2/lLYyaxFhYzfqUiW9Kz/MFbB19P7tr7D5zPvqG9pbYgepy9A3trboLrI6+ob1Fv4KX2L8Ho99Foz8H43+SifhZtBnmsX+bUGbYQSPZSdvtZfx1U1VVM10wh9zQzrrt03kljs20Px4czy3nOHab8fhbXIjjQBz7Ft9tzXBF9BpOjy/LazEUrvXFUDh+myn3k/X4Diz01elRX3vQG8mFY9/Km9FF8pQ+0Se58PF89oZCcc/fzeXPozf38Qs/clsAEJQq+YQDN1j1EQcekQQSSCCBBBJIIIFRBOb6tCedEUgggQQ+CNT/0Rx+oC7rVvFqY+iBusy6TxtUHmegTqcLZYyB1/m/LYwwUP/OLiQv7a9hB1oLqJLoVlDnygpMowvM7MD6OwP16sKGHfjUiJaru0/QgafU3mQKZ4FRycoRGXagtv59tnOhdN7+IRj/EoYdaJ8TzgXsvmJlSAMP1PVYmFydAX8XvUMaeOBJX023REnm/gYcbv/Xt4ShB94S8yyvS2eAHnch75CGH3h73/W98Razm/cMqYRAL+tBwDOk4gLnh0g932OT2j3FwgKLbLpc2j+I5nkOEBZokrFQ3/2UlntIZQXe7nYo7B5h7CV0DamoQJ11Z2JfmN73uYdUUuCwZv2Zt8hrZcvfKyhw2jTbwrtXRf+QygnUs5lMcseAdhZDKiew9CTZFkMqJrBYtDgthlRM4P2h51WIDLQ+AV53N6QyAvsD8DlJqsUFLh9aVhXSAjf22UMqIFD7zjwfa0jDD9TXjX3KGtLwA8vNedaQBh9YPH0AzsyGNPjA5w9ASyEk0P3S8ITpvT/owC0HvG38m6igA7cegJZCQODJ+TnZNmEH7oBAAgkk8MsCs3RfJrRAtfPPtargAt+HQAIJJJBAAgk8JvCVDwe3OvS/ezp/woF9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAL7OP9jGQLsoBbimAAAAAElFTkSuQmCC/100x100" alt="" />
-                <p>This green garden is the big garden in KSA</p>
+            <div class="w3-card-4" style={{ width: "40%", margin: "20px" }}>
+                <header class="w3-container w3-light-grey">
+                    <h2>Garden</h2>
+                </header>
+                <div class="w3-container"></div>
+                <img src="https://www.onyamagazine.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-20-at-1.00.51-pm-1024x679.png" alt="Avatar" class="w3-left w3-round" width="30%" style={{ margin: "10px" }} />
+                <p>large green garden in KSA</p>
 
                 <h5>Date</h5> {" "}
                 <h6>2021-02-21</h6>
 
                 <h5>Time</h5> {" "}
                 <h6>03:30:22 PM</h6>
-
-
+                <div class="w3-container">
+                    <button onClick={this.deleteTrip} class="w3-middle w3-large w3-circle w3-grey w3-right" style={{ marginBottom: "5px" }}>X</button>
+                </div>
             </div>
-
 
 
 
