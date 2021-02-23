@@ -16,6 +16,9 @@ export default class PlaceDet extends Component {
       <PlacesPIc places={this.props.places} /> 
       <p>{this.props.places.overview}</p>
     </div>
+    {/* <button class="w3-button w3-xlarge w3-circle w3-yellow black">
+    <span class="glyphicon glyphicon-heart" aria-hidden="true">Like</span> 
+    </button> */}
     <button class="w3-button w3-block w3-dark-grey">Add to your trip </button>
   </div>
 

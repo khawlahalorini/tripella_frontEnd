@@ -6,7 +6,7 @@ export default class PlacesPIc extends Component {
         return (
 
             
-            <img src={pic} alt="Avatar" class="w3-left" width="30%" style={{ margin: "10px"}}/>
+            <img src={pic} alt="Avatar" class="w3-left w3-round" width="30%" style={{ margin: "10px"}}/>
             // <img src={`https://${this.props.places.pic}`} alt="" />
 
 
