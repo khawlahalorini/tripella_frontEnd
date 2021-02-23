@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import showPlaces from './AllPlaces'
 
-export default class WishList extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          isFave: false
-        }
-      }
-    
-      handleClick = (e)=> {
+function WishList (props){
+
+  
+
+  const  handleClick = (e)=> {
         e.stopPropagation()
-        console.log("click")
-        this.setState({isFave: !this.state.isFave})
+        props.onFavetoggle()
       }
-    render() {
-        const isFave = this.state.isFave ? 'remove_from_queue' : 'add_to_queue'
-        return (
-           <div className={`film-row-fave ${isFave}`} onClick={this.handleClick}>
+      const isFave = props.isFave ? 'remove_from_queue' : 'add_to_queue'
+      const message = props.isFave ? "remove_from_queue" : "add_to_queue"
 
-           </div>
+      return (
+        <div onClick={handleClick} className={`place-row-fave ${isFave}`} >
+            <p className="material-icons">{message}</p>
+            {showPlaces}
+        </div>
 
-        )
-    }
+     )
 }
+export default WishList;

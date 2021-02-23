@@ -162,7 +162,7 @@ handleFilterClick = (filter)=>{
           ></Route>
             <Route
             path="/allplaces"
-            component={() => <AllPlaces onClick={this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
+            component={() => <AllPlaces onClick={() => this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
             }
           ></Route>
           {/* dropdown list */}
@@ -180,7 +180,7 @@ handleFilterClick = (filter)=>{
           ></Route>
           <Route
             path="/wishList"
-            component={() => <WishList onClick={this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
+            component={() => <WishList onClick={() => this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
             }
           ></Route> 
         </div>
