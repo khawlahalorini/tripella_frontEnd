@@ -5,13 +5,16 @@ import Home from './Home'
 import axios from "axios";
 import TripList from './TripList'
 import WishList from './WishList'
+import AddPost from './AddPost'
 import Profile from './user/Profile';
 import DropdownButton from './DropdownButton';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from './AllPlaces';
-
+import Tripella from './img2/Tripella.png';
+import loogo from './img2/loogo.png';
+import logo1 from './img2/logo.png';
 
 // import { Alert } from 'bootstrap';
 
@@ -103,6 +106,17 @@ export default class Navs extends Component {
       console.log(error);
     });
 };
+//AddPost
+AddPostHandler = (user) =>{
+  axios 
+  .post("./user/AddPost.js", user)
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+};
 // folter 
 handleFilterClick = (filter)=>{
   this.setState({filter: filter})
@@ -119,6 +133,9 @@ handleFilterClick = (filter)=>{
     <Router>
     <div class="nav">
       <Nav variant="tabs">
+        <Nav.Item>
+          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
+        </Nav.Item>
   <Nav.Item>
     <Nav.Link href="/home">Home</Nav.Link>
   </Nav.Item>
@@ -159,9 +176,15 @@ handleFilterClick = (filter)=>{
             path="/profile"
             component={() => <Profile profile={this.profileHandler} />}
           ></Route>
+          
                     <Route
             path="/tripList"
             component={() => <TripList tripList={this.TripListHandler} />}
+          ></Route>
+
+<Route
+            path="/AddPost"
+            component={() => <AddPost addPost={this.AddPostHandler} />}
           ></Route>
           <Route
             path="/wishList"
