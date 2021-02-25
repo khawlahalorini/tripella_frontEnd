@@ -5,6 +5,9 @@ const ARRAY = {
       "title": "Resturant",
       "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
       "overview": "This italin Resturant is lavely places in KSA",
+      "info": "+966 11 11 1111",
+      "contry":"Saudi Arabia",
+      "city": "Riyadh",
       "release_date": "2017-09-05"
      },
      {
@@ -12,6 +15,9 @@ const ARRAY = {
   "title": "Resturant",
   "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
   "overview": "This italin Resturant is lavely places in KSA",
+  "info": "+966 11 11 1111",
+  "contry":"Saudi Arabia",
+  "city": "Riyadh",
   "release_date": "2017-09-05"
 },
 {
@@ -19,6 +25,9 @@ const ARRAY = {
 "title": "Resturant",
 "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
 "overview": "This italin Resturant is lavely places in KSA",
+"info": "+966 11 11 1111",
+"contry":"Saudi Arabia",
+"city": "Riyadh",
 "release_date": "2017-09-05"
 },
 {
@@ -26,6 +35,9 @@ const ARRAY = {
 "title": "Resturant",
 "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
 "overview": "This italin Resturant is lavely places in KSA",
+"info": "+966 11 11 1111",
+"contry":"Saudi Arabia",
+"city": "Riyadh",
 "release_date": "2017-09-05"
 },
 {
@@ -40,6 +52,9 @@ const ARRAY = {
 "title": "Resturant",
 "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
 "overview": "This italin Resturant is lavely places in KSA",
+"info": "+966 11 11 1111",
+"contry":"Saudi Arabia",
+"city": "Riyadh",
 "release_date": "2017-09-05"
 },
 {
@@ -47,6 +62,9 @@ const ARRAY = {
 "title": "Resturant",
 "poster_path": "https://media-cdn.tripadvisor.com/media/photo-s/0a/31/6a/8d/front.jpg",
 "overview": "This italin Resturant is lavely places in KSA",
+"info": "+966 11 11 1111",
+"contry":"Saudi Arabia",
+"city": "Riyadh",
 "release_date": "2017-09-05"
 }
     ]

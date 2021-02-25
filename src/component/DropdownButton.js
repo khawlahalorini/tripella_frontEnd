@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Profile from './user/Profile';
+import Profile from '../user/Profile';
 
 
 export default class DropdownButton extends Component {

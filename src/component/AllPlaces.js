@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'w3-css/w3.css'
 import PlaceDet from './PlaceDet';
-import ARRAY from './ARRAY'
+import ARRAY from '../ARRAY'
 
 export default class AllPlaces extends Component {
     render() {

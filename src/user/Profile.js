@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-// import ProfileEditForm from './ProfileEditForm';
-import ProfileEditForm from './ProfileEditForm';
-import { Card, ListGroupItem, ListGroup } from 'react-bootstrap'
-
-// import axios from 'axios';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import axios from 'axios';
+import { Nav } from 'react-bootstrap';
+import ProfileEditForm from "../user/ProfileEditForm.js";
 
 export default class Profile extends Component {
+  profileEditHandler = (user) => {
+    axios 
+        .post("src/user/ProfileEditForm.js", user)
+        .then((response) => {
+          console.log(response);
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  };
 
   render() {
     return (
@@ -23,10 +33,19 @@ export default class Profile extends Component {
             <br />
             <p>Bio</p>
             <br />
+            <Router>
+              <Nav.Link href="/profileEdit">
             <div class="w3-section">
               <button class="w3-button w3-grey">Edit profile</button>
-
             </div>
+            </Nav.Link>
+            <div>
+            <Route
+            path="/profileEdit"
+            component={() => <ProfileEditForm onClick={this.profileEditHandler} />}
+          ></Route>
+            </div>
+            </Router>
           </div>
 
         </div>
