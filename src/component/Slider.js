@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import "./App.css";
+import "../App.css";
 import {Carousel} from 'react-bootstrap'
-import img1 from './img2/img1.png';
-import img2 from './img2/img2.jpg';
-import img5 from './img2/img5.jpg';
+import img1 from '../img2/img1.png';
+import img2 from '../img2/img2.jpg';
+import img5 from '../img2/img5.jpg';
 
 export default class Slider extends Component {
     render() {
         return (
+
             <div class="slider">
             <Carousel>
                 <Carousel.Item>
