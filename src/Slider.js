@@ -8,6 +8,7 @@ import img5 from './img2/img5.jpg';
 export default class Slider extends Component {
     render() {
         return (
+
             <div class="slider">
             <Carousel>
                 <Carousel.Item>

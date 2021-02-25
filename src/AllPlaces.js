@@ -29,17 +29,17 @@ export default class AllPlaces extends Component {
         //         <div>
         //             {/* {favesPlaces} */}
 
-    // render() {
-    //     const allPlace = ARRAY.places.map((item, index) => {
-    //         return <PlaceDet places={item} key={index} />
-    //     })
-    //     return (
+    render() {
+       const allPlace = ARRAY.places.map((item, index) => {
+            return <PlaceDet places={item} key={index} />
+      })
+         return (
            
-    //             <div>
-    //                 {allPlace}
+              <div>
+                   {allPlace}
 
-    //             </div>
+                </div>
               
-    //     )
-//     }
+        )
+    }
 }

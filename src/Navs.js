@@ -129,27 +129,31 @@ AddPostHandler = (user) =>{
       // ) : null;
         return (
     <Router>
-    <div class="nav">
-      <Nav variant="tabs">
-        <Nav.Item>
-          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
-        </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/home">Home</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/register">Register</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/login">Login</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/allPlaces">All Places</Nav.Link>
-  </Nav.Item>
-  <DropdownButton  />
-</Nav>
-
-    </div>
+    
+      
+<nav class="navbar navbar-expand-lg bg-light navbar-light nav">
+  
+  <a class="navbar-brand" href="/home">
+    <img src={loogo} alt="logo" style={{width:"100%"}}/>
+  </a>
+  
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/AllPlaces">All places</a>
+    </li>
+    <DropdownButton />
+  </ul>
+</nav>
+    
     <div>
          <Route
             path="/home"
@@ -201,3 +205,22 @@ AddPostHandler = (user) =>{
         )
     }
 }
+    {/* <div class="nav">
+      <Nav variant="tabs">
+        <Nav.Item>
+          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
+        </Nav.Item>
+  <Nav.Item>
+    <Nav.Link href="/home">Home</Nav.Link>
+  </Nav.Item>
+  <Nav.Item>
+    <Nav.Link href="/register">Register</Nav.Link>
+  </Nav.Item>
+  <Nav.Item>
+    <Nav.Link href="/login">Login</Nav.Link>
+  </Nav.Item>
+  <Nav.Item>
+    <Nav.Link href="/allPlaces">All Places</Nav.Link>
+  </Nav.Item>
+  <DropdownButton  />
+</Nav> */}
