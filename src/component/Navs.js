@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
-import Login from './user/Login';
-import Register from './user/Register'
-import Home from './Home'
+import Login from '../user/Login.js';
+import Register from '../user/Register.js'
+import Home from '../component/Home.js'
 import axios from "axios";
-import TripList from './TripList'
-import WishList from './WishList'
-import AddPost from './AddPost'
-import Profile from './user/Profile';
-import DropdownButton from './DropdownButton';
+import loogo from '../img2/loogo.png';
+import TripList from '../component/TripList.js'
+import WishList from '../component/WishList.js'
+import Profile from '../user/Profile';
+import DropdownButton from '../component/DropdownButton.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AllPlaces from './AllPlaces';
-import Tripella from './img2/Tripella.png';
-import loogo from './img2/loogo.png';
-import logo1 from './img2/logo.png';
+import AllPlaces from '../component/AllPlaces.js';
+import AddPost from '../component/AddPost.js';
+
 
 // import { Alert } from 'bootstrap';
 
@@ -54,7 +53,7 @@ export default class Navs extends Component {
       //home
       homeHandler = (user) => {
         axios 
-            .post("./Home.js", user)
+            .post("./component/Home.js", user)
             .then((response) => {
               console.log(response);
             })
@@ -65,7 +64,8 @@ export default class Navs extends Component {
       // all places
       allplacesHandler = (user) => {
         axios 
-            .post("./Home.js", user)
+            .post("src/component/AllPlaces.js", user)
+
             .then((response) => {
               console.log(response);
             })
@@ -87,7 +87,8 @@ export default class Navs extends Component {
     //trip list 
     TripListHandler = (user) =>{
       axios 
-      .post("./user/TripList.js", user)
+
+      .post("src/component/TripList.js", user)
       .then((response) => {
         console.log(response);
       })
@@ -98,7 +99,8 @@ export default class Navs extends Component {
   // wish list 
   WishListHandler = (user) =>{
     axios 
-    .post("./user/TripList.js", user)
+
+    .post("src/component/WishList.js", user)
     .then((response) => {
       console.log(response);
     })
@@ -109,7 +111,8 @@ export default class Navs extends Component {
 //AddPost
 AddPostHandler = (user) =>{
   axios 
-  .post("./user/AddPost.js", user)
+
+  .post("src/component/AddPost.js", user)
   .then((response) => {
     console.log(response);
   })

@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react'
-import Navs from './Navs';
+import Navs from './component/Navs';
 import ARRAY from './ARRAY';
 
 

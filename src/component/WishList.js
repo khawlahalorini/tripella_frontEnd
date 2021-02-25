@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PlaceDet from './PlaceDet';
-import ARRAY from './ARRAY'
+import ARRAY from '../ARRAY'
 
 export default class WishList extends Component {
     constructor(props){

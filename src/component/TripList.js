@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import './App.css';
-import axios from 'axios';
-import PlacesPIc from './PlacesPIc';
+import '../App.css';
 export default class TripList extends Component {
     // constructor(props) {
     //     super(props)
