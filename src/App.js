@@ -31,13 +31,16 @@ export default class App extends Component {
   //   this.setState({ faves })
   // }
 
+
   
   render() {
     return (
     <div class="body">
+
       {/* <Navs  handleDetailsClick={this.handleDetailsClick} films={this.state.films} faves={this.state.faves} onFaveToggle={this.handleFaveToggle} /> */}
      
     <Navs />
+
     </div>
     )
   }

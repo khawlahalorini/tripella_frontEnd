@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function WishList(props) {
-  const handleFaveClick = (e) => {
-    e.stopPropagation()
+export default class WishList extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+          isFave: false
+        }
+      }
+    
+      handleClick = (e)=> {
+        e.stopPropagation()
+        console.log("click")
+        this.setState({isFave: !this.state.isFave})
+      }
+    render() {
+        const isFave = this.state.isFave ? 'remove_from_queue' : 'add_to_queue'
+        return (
+           <div className={`place-row-fave ${isFave}`} onClick={this.handleClick}>
 
-    props.onFaveToggle()
+           </div>
+
+        )
+    }
 }
-const isFave = props.isFave ? 'remove_from_queue' : 'add_to_queue'
-const message = props.isFave ? "remove_from_queue" : "add_to_queue"
-
-return ( 
-    <div  onClick={handleFaveClick} className={`place-row-fave ${isFave}`}  >
-        <p className="material-icons">{message}</p>
-    </div>
-);
-  
-}
- export default WishList;
-

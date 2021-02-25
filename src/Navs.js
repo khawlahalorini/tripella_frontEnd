@@ -118,9 +118,7 @@ AddPostHandler = (user) =>{
   });
 };
 // folter 
-handleFilterClick = (filter)=>{
-  this.setState({filter: filter})
-}
+
     render() {
 
       // const successMessage = this.state.successMessage ? (
@@ -170,6 +168,7 @@ handleFilterClick = (filter)=>{
             path="/allplaces"
             component={() => <AllPlaces allplaces={this.allplacesHandler} />
             // component={() => <AllPlaces onClick={() => this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
+
             }
           ></Route>
           <Route
@@ -189,9 +188,11 @@ handleFilterClick = (filter)=>{
           <Route
             path="/wishList"
 
+
             component={() => <WishList wishList={this.WishListHandler} />
 
             // component={() => <WishList onClick={() => this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
+
 
             }
           ></Route> 
