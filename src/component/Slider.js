@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import "../App.css";
 import {Carousel} from 'react-bootstrap'
 import img1 from '../img2/img1.png';
 import img2 from '../img2/img2.jpg';
@@ -9,7 +8,7 @@ export default class Slider extends Component {
     render() {
         return (
 
-            <div class="slider">
+            <div  class="w3-panel w3-padding-16 w3-greey">
             <Carousel>
                 <Carousel.Item>
                      <img
