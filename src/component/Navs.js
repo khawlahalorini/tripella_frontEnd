@@ -3,6 +3,7 @@ import Login from '../user/Login.js';
 import Register from '../user/Register.js'
 import Home from '../component/Home.js'
 import axios from "axios";
+import loogo from '../img2/loogo.png';
 import TripList from '../component/TripList.js'
 import WishList from '../component/WishList.js'
 import Profile from '../user/Profile';
@@ -64,6 +65,7 @@ export default class Navs extends Component {
       allplacesHandler = (user) => {
         axios 
             .post("src/component/AllPlaces.js", user)
+
             .then((response) => {
               console.log(response);
             })
@@ -85,6 +87,7 @@ export default class Navs extends Component {
     //trip list 
     TripListHandler = (user) =>{
       axios 
+
       .post("src/component/TripList.js", user)
       .then((response) => {
         console.log(response);
@@ -96,6 +99,7 @@ export default class Navs extends Component {
   // wish list 
   WishListHandler = (user) =>{
     axios 
+
     .post("src/component/WishList.js", user)
     .then((response) => {
       console.log(response);
@@ -104,8 +108,10 @@ export default class Navs extends Component {
       console.log(error);
     });
 };
+//AddPost
 AddPostHandler = (user) =>{
   axios 
+
   .post("src/component/AddPost.js", user)
   .then((response) => {
     console.log(response);
@@ -126,8 +132,87 @@ AddPostHandler = (user) =>{
       // ) : null;
         return (
     <Router>
-    <div class="nav">
+    
+      
+<nav class="navbar navbar-expand-lg bg-light navbar-light nav">
+  
+  <a class="navbar-brand" href="/home">
+    <img src={loogo} alt="logo" style={{width:"100%"}}/>
+  </a>
+  
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/AllPlaces">All places</a>
+    </li>
+    <DropdownButton />
+  </ul>
+</nav>
+    
+    <div>
+         <Route
+            path="/home"
+            component={() => <Home register={this.homeHandler} />}
+          ></Route>
+          <Route
+            path="/register"
+            component={() => <Register register={this.registerHandler} />}
+          ></Route>
+          <Route
+            path="/login"
+            component={() => <Login login={this.loginHandler} />
+            }
+          ></Route>
+                    <Route
+            path="/allplaces"
+            component={() => <AllPlaces allplaces={this.allplacesHandler} />
+            // component={() => <AllPlaces onClick={() => this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
+
+            }
+          ></Route>
+          <Route
+            path="/profile"
+            component={() => <Profile profile={this.profileHandler} />}
+          ></Route>
+          
+                    <Route
+            path="/tripList"
+            component={() => <TripList tripList={this.TripListHandler} />}
+          ></Route>
+
+<Route
+            path="/AddPost"
+            component={() => <AddPost addPost={this.AddPostHandler} />}
+          ></Route>
+          <Route
+            path="/wishList"
+
+
+            component={() => <WishList wishList={this.WishListHandler} />
+
+            // component={() => <WishList onClick={() => this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
+
+
+            }
+          ></Route> 
+        </div>
+    </Router>
+        )
+    }
+}
+    {/* <div class="nav">
       <Nav variant="tabs">
+        <Nav.Item>
+          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
+        </Nav.Item>
   <Nav.Item>
     <Nav.Link href="/home">Home</Nav.Link>
   </Nav.Item>
@@ -141,48 +226,4 @@ AddPostHandler = (user) =>{
     <Nav.Link href="/allPlaces">All Places</Nav.Link>
   </Nav.Item>
   <DropdownButton  />
-</Nav>
-
-    </div>
-    <div>
-         <Route
-            path="/home"
-            component={() => <Home home={this.homeHandler} />}
-          ></Route>
-          <Route
-            path="/register"
-            component={() => <Register register={this.registerHandler} />}
-          ></Route>
-          <Route
-            path="/login"
-            component={() => <Login login={this.loginHandler} />
-            }
-          ></Route>
-            <Route
-            path="/allplaces"
-            component={() => <AllPlaces onClick={this.allplacesHandler} />
-            }
-          ></Route>
-          {/* dropdown list */}
-          <Route
-            path="/profile"
-            component={() => <Profile profile={this.profileHandler} />}
-          ></Route>            
-          <Route
-            path="/addPost"
-            component={() => <AddPost addPost={this.AddPostHandler} />}
-          ></Route>
-            <Route
-            path="/tripList"
-            component={() => <TripList tripList={this.TripListHandler} />}
-          ></Route>
-          <Route
-            path="/wishList"
-            component={() => <WishList onClick={this.WishListHandler} />
-            }
-          ></Route> 
-        </div>
-    </Router>
-        )
-    }
-}
+</Nav> */}

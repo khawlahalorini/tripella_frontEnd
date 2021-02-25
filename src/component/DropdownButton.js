@@ -12,7 +12,7 @@ export default class DropdownButton extends Component {
             <Router>
             <div class="dropdown">
                 <Dropdown>
-                    <Dropdown.Toggle variant="link" id="dropdown-basic">
+                    <Dropdown.Toggle variant="link" id="dropdown-basic" class="">
                          ☰
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
