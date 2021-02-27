@@ -15,7 +15,9 @@ export default class home extends Component {
         return (
             <div>
                 <Slider />
+                <div class="w3-row">
                 {homeCard}
+                </div>
             </div>
         )
     }
