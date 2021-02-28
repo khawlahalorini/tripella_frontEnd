@@ -9,12 +9,10 @@ import WishList from '../component/WishList.js'
 import Profile from '../user/Profile';
 import DropdownButton from '../component/DropdownButton.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
 import { decode } from "jsonwebtoken";
-
 import { Alert } from "react-bootstrap";
 
 export default class Navs extends Component {
@@ -63,6 +61,7 @@ export default class Navs extends Component {
               if (response.data != null) {
                 localStorage.setItem("token", response.data);
                 let user = decode(response.data);
+                console.log(response.data);
                 this.setState({
                   user: user,
                   successMessage: "Successfully logged in!!!"
@@ -153,16 +152,13 @@ AddPostHandler = (user) =>{
 
     render() {
 
-      const successMessage = this.state.successMessage ? (
-        <Alert variant="success">{this.state.successMessage}</Alert>
-      ) : null;
+      const successMessage = this.state.successMessage ?(
+        <Alert variant="success">{this.state.successMessage}</Alert>): null;
       const dangerMessage = this.state.dangerMessage ? (
-        <Alert variant="danger">{this.state.dangerMessage}</Alert>
-      ) : null;
+        <Alert variant="danger">{this.state.dangerMessage}</Alert>) : null;
         return (
     <Router>
     
-      
 <nav class="navbar navbar-expand-lg bg-light navbar-light nav">
   
   <a class="navbar-brand" href="/home">
@@ -185,7 +181,8 @@ AddPostHandler = (user) =>{
     <DropdownButton />
   </ul>
 </nav>
-    
+      {successMessage}
+      {dangerMessage}
     <div>
          <Route
             path="/home"
