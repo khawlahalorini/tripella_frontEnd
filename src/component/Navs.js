@@ -13,43 +13,72 @@ import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
+import { decode } from "jsonwebtoken";
 
-
-// import { Alert } from 'bootstrap';
+import { Alert } from "react-bootstrap";
 
 export default class Navs extends Component {
 
   state = {
     user: null,
-    filter: 'all'
-    // successMessage:null,
-    // dangerMessage:null,
+    successMessage:null,
+    dangerMessage:null
 
   };
-  // register 
-    registerHandler = (user) => {
-        axios 
-            .post("./user/Register.js", user)
-            .then((response) => {
-              console.log(response);
 
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token != null) {
+      let user = decode(token);
+      if (user) {
+        this.setState({
+          user: user
+        });
+      } else if (!user) {
+        localStorage.removeItem("token");
+        this.setState({
+        });
+      }
+    }
+  }
+  // register 
+    registerHandler = (userData) => {
+        axios 
+            .post("tripella/user/register", userData)
+            .then((response) => {
+              console.log(response.data);
+             this.setState({
+              successMessage: response.data 
+             })
             })
             .catch((error) => {
               console.log(error);
             });
       };
       // login 
-    loginHandler = (user) => {
+    loginHandler = (userData) => {
         axios 
-            .post("./user/Login.js", user)
+            .post("tripella/user/authenticate", userData)
             .then((response) => {
-              console.log(response);
-              
+              if (response.data != null) {
+                localStorage.setItem("token", response.data);
+                let user = decode(response.data);
+                this.setState({
+                  user: user,
+                  successMessage: "Successfully logged in!!!"
+                });
+              } else {
+                this.setState({
+                  user: null,
+                });
+              }
             })
             .catch((error) => {
               console.log(error);
+              this.setState({
+              });
             });
-      };
+        };
       //home
       homeHandler = (user) => {
         axios 
@@ -124,12 +153,12 @@ AddPostHandler = (user) =>{
 
     render() {
 
-      // const successMessage = this.state.successMessage ? (
-      //   <Alert variant="success">{this.state.successMessage}</Alert>
-      // ) : null;
-      // const dangerMessage = this.state.dangerMessage ? (
-      //   <Alert variant="danger">{this.state.dangerMessage}</Alert>
-      // ) : null;
+      const successMessage = this.state.successMessage ? (
+        <Alert variant="success">{this.state.successMessage}</Alert>
+      ) : null;
+      const dangerMessage = this.state.dangerMessage ? (
+        <Alert variant="danger">{this.state.dangerMessage}</Alert>
+      ) : null;
         return (
     <Router>
     
