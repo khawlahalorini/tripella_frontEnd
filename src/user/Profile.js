@@ -34,14 +34,14 @@ export default class Profile extends Component {
             <p>Bio</p>
             <br />
             <Router>
-              <Nav.Link href="/profileEdit">
+              <Nav.Link href="/ProfileEditForm">
             <div class="w3-section">
               <button class="w3-button w3-grey">Edit profile</button>
             </div>
             </Nav.Link>
             <div>
             <Route
-            path="/profileEdit"
+            path="/ProfileEditForm"
             component={() => <ProfileEditForm onClick={this.profileEditHandler} />}
           ></Route>
             </div>

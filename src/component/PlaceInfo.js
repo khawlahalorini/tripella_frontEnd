@@ -7,19 +7,17 @@ export default class PlaceInfo extends Component {
         return (
             <div>
                 <div class="w3-card-4" style={{width:"40%" , margin:"20px"}}>
-    <header class="w3-container w3-light-grey">
-      <h3>{this.props.places.title}</h3>
-    </header>
-    <div class="w3-container">
-      
-      <PlacesPIc places={this.props.places} /> 
-      <p>{this.props.places.overview}</p>
-<div class="w3-container">
-  
-<button class="w3-button w3-xlarge w3-circle w3-grey w3-right"  style={{marginBottom:"10px"}}>+</button>
-            </div>
-            </div>
-            </div>
+                    <header class="w3-container w3-light-grey">
+                        <h3>{this.props.places.title}</h3>
+                        </header>
+                        <div class="w3-container">
+                            <PlacesPIc places={this.props.places} /> 
+                            <p>{this.props.places.overview}</p>
+                            <div class="w3-container">
+                                <button class="w3-button w3-xlarge w3-circle w3-grey w3-right"  style={{marginBottom:"10px"}}>+</button>
+                            </div>
+                        </div>
+                </div>
             </div>
         )
     }
