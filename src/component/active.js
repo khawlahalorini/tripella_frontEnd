@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import  Alert  from "react-bootstrap";
 
 
-export default class ActivePage extends Component {
+export default class active extends Component {
     state = { 
         successMessage:null,
         dangerMessage:null
