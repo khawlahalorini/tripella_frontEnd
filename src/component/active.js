@@ -8,9 +8,9 @@ export default class active extends Component {
         dangerMessage:null
     }
 
-    handler  = (userData) => {
+    handler  = () => {
         axios 
-            .post("tripella/user/active?email=", userData)
+            .post("tripella/user/active?email=" +param)
             .then((response) => {
               console.log(response.data);
              this.setState({
@@ -22,6 +22,8 @@ export default class active extends Component {
             });
       };
     render() {
+
+      var param = window.location.search;
 
         const successMessage = this.state.successMessage ?(
             <Alert variant="success">{this.state.successMessage}</Alert>): null;
