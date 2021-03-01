@@ -8,7 +8,7 @@ export default class Slider extends Component {
     render() {
         return (
 
-            <div  class="w3-panel w3-padding-16 w3-greey">
+            <div  class="w3-panel w3-padding-small">
             <Carousel>
                 <Carousel.Item>
                      <img

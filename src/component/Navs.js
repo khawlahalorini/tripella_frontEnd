@@ -160,12 +160,12 @@ AddPostHandler = (user) =>{
         return (
     <Router>
     
-    <div class="w3-display-container "  style={{height:"300px;"}}> 
-     <DropdownButton class="w3-display-lift w3-xlarge"/>    
-     <a  class="w3-right" href="/home">
+    <div class="w3-display-container "> 
+     <DropdownButton class="w3-display-lift w3-xlarge " />    
+     <a  class="w3-right w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a>
-     <div  class="w3-right w3-large">
+     <div  class="w3-right w3-large w3-section">
      <NavsItem  /></div>
  
     
