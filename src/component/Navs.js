@@ -59,10 +59,10 @@ export default class Navs extends Component {
         axios 
             .post("tripella/user/authenticate", userData)
             .then((response) => {
-              if (response.data != null) {
-                localStorage.setItem("token", response.data);
-                let user = decode(response.data);
-                console.log(response.data);
+              if (response.data.token != null) {
+                localStorage.setItem("token", response.data.token);
+                let user = decode(response.data.token);
+                console.log(response.data.token);
                 this.setState({
                   user: user,
                   successMessage: "Successfully logged in!!!"
