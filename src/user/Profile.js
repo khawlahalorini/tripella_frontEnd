@@ -81,8 +81,6 @@ export default class Profile extends Component {
         <h2>{this.state.userData.firstName} {this.state.userData.lastName}</h2>
             <h2>{this.state.user ? this.state.user.sub : null}</h2> 
             
-            
-
             <br />
             <p>Bio</p>
             <br />
@@ -94,8 +92,8 @@ export default class Profile extends Component {
             </Nav.Link>
             <div>
             <Route
-            path="/ProfileEditForm"
-            component={() => <ProfileEditForm onClick={this.profileEditHandler} />}
+            exact path="/ProfileEditForm"
+            component={() => <ProfileEditForm user={this.state.userData} onClick={this.profileEditHandler} />}
           ></Route>
             </div>
             </Router>

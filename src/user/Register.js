@@ -40,20 +40,20 @@ export default class login extends Component {
                     </Col>
                     <Col>
                     <Form.Group>
-                        {/* <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" name="password"></Form.Control> */}
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>
                     </Form.Group> 
                     </Col>
                     </Row>
                     <Form.Group>
-            {/* <Form.File
+            <Form.File
               className="position-relative"
               required
-              name="file"
+              name="photoFile"
               label="File"
               id="validationFormik107"
               feedbackTooltip
-            /> */}
+            />
           </Form.Group>
           <Button variant="light" onClick={this.registerHandler}>Register</Button>
                 </Container>
