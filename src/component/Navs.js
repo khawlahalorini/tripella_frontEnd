@@ -90,18 +90,6 @@ export default class Navs extends Component {
               console.log(error);
             });
       };
-      // all places
-      allplacesHandler = (user) => {
-        axios 
-            .post("src/component/AllPlaces.js", user)
-
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-      };
       // profile
       profileHandler = (user) =>{
         axios 
@@ -138,10 +126,10 @@ export default class Navs extends Component {
     });
 };
 //AddPost
-AddPostHandler = (user) =>{
+AddPostHandler = (post) =>{
   axios 
 
-  .post("src/component/AddPost.js", user)
+  .post("tripella/post/add", post)
   .then((response) => {
     console.log(response);
   })
@@ -185,7 +173,7 @@ AddPostHandler = (user) =>{
           ></Route>
           <Route
             path="/allplaces"
-            component={() => <AllPlaces allplaces={this.allplacesHandler} />}
+            component={() => <AllPlaces />}
           ></Route>
           <Route
             path="/profile"
