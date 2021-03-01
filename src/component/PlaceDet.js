@@ -39,7 +39,7 @@ export default class PlaceDet extends Component {
         
 <Router>
  
-  <div class=" w3-panel w3-card-4 w3-margin w3-round-small" >  
+  <div class=" w3-panel w3-card-4 w3-margin w3-round-large" >  
    <div class="w3-display-container ">
     <PlacesPIc places={this.props.places} /> 
       <h3 class=" w3-margin-top">{this.props.places.title}</h3>
