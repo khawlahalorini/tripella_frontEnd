@@ -167,12 +167,7 @@ AddPostHandler = (user) =>{
   </a>
      <div  class="w3-right w3-large w3-section">
      <NavsItem  /></div>
- 
-    
-   
-    
 </div>
-
       {successMessage}
       {dangerMessage}
     <div>
@@ -186,39 +181,27 @@ AddPostHandler = (user) =>{
           ></Route>
           <Route
             path="/login"
-            component={() => <Login login={this.loginHandler} />
-            }
+            component={() => <Login login={this.loginHandler} />}
           ></Route>
-                    <Route
+          <Route
             path="/allplaces"
-            component={() => <AllPlaces allplaces={this.allplacesHandler} />
-            // component={() => <AllPlaces onClick={() => this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
-
-            }
+            component={() => <AllPlaces allplaces={this.allplacesHandler} />}
           ></Route>
           <Route
             path="/profile"
             component={() => <Profile profile={this.profileHandler} />}
           ></Route>
-          
-                    <Route
+          <Route
             path="/tripList"
             component={() => <TripList tripList={this.TripListHandler} />}
           ></Route>
-
-<Route
+          <Route
             path="/AddPost"
             component={() => <AddPost addPost={this.AddPostHandler} />}
           ></Route>
           <Route
             path="/wishList"
-
-
             component={() => <WishList wishList={this.WishListHandler} />
-
-            // component={() => <WishList onClick={() => this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
-
-
             }
           ></Route> 
         </div>
@@ -226,22 +209,4 @@ AddPostHandler = (user) =>{
         )
     }
 }
-    {/* <div class="nav">
-      <Nav variant="tabs">
-        <Nav.Item>
-          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
-        </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/home">Home</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/register">Register</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/login">Login</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/allPlaces">All Places</Nav.Link>
-  </Nav.Item>
-  <DropdownButton  />
-</Nav> */}
+   
