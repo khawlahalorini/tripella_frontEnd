@@ -10,24 +10,17 @@ export default class DropdownButton extends Component {
     render() {
         return (
             <Router>
-            <div class="dropdown">
-                <Dropdown>
-                    <Dropdown.Toggle variant="link" id="dropdown-basic" class="">
-                         ☰
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                        <Dropdown.Item href="addPost">Add Place</Dropdown.Item>
-                        <Dropdown.Item href="tripList">Trip List</Dropdown.Item>
-                        <Dropdown.Item href="wishList">Wish List</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+
+            <div class="w3-dropdown-hover w3-section">
+                <button class="w3-button w3-xlarge  w3-white">☰</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="/profile" class="w3-bar-item w3-button">Profile</a>
+                <a href="addPost" class="w3-bar-item w3-button">Add Place</a>
+                <a href="tripList" class="w3-bar-item w3-button">Trip List</a>
+                <a href="wishList" class="w3-bar-item w3-button "><i class='fas fa-heart'/>Wish List</a>
+                </div>
             </div>
-            <div>
-
-
-
-        </div>
+        
          </Router>
         )
     }

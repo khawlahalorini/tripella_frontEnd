@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, ListGroupItem, ListGroup } from 'react-bootstrap'
+import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
 
 export default class ProfileEditForm extends Component {
 
@@ -7,18 +7,9 @@ export default class ProfileEditForm extends Component {
         return (
             <div>
 
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" />
-                    <Card.Body>
-                        <Card.Title>username</Card.Title>
-                        {/* <Card.Title>{this.state.username}</Card.Title> */}
-                        <Card.Text>Email</Card.Text>
-                        {/* <Card.Text>{this.state.emailAddress}</Card.Text> */}
-                        <Card.Text>Bio</Card.Text>
-                    </Card.Body>
-                </Card>
-                {/* <form
-                //  onSubmit={this.handleSubmit}
+              
+               {/* <form
+                 onSubmit={this.handleSubmit}
                 >
                     <div>
                         <label>Bio</label>
@@ -37,7 +28,7 @@ export default class ProfileEditForm extends Component {
                         // onChange={this.handleChange}
                         ></input>
                     </div>
-                    {/* <div>
+                    <div>
                         <Form.File
                             className="position-relative"
                             required
@@ -46,13 +37,53 @@ export default class ProfileEditForm extends Component {
                             id="validationFormik107"
                             feedbackTooltip
                         />
-                    </div> */}
-                {/* <div>
+                    </div> 
+                 <div>
                         <input type="submit" value="Save"></input>
                     </div>
-                </form> */}
+                </form> 
 
-            </div>
+            </div> */}
+                <Container>
+                    <Form.Group>
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control type="text" name="fristName"></Form.Control>
+                    </Form.Group> 
+                    <Form.Group>
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control type="text" name="lastName"></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control type="email" name="emailAddress"></Form.Control>
+                    </Form.Group> 
+                    <Row>
+                        <Col>
+                    <Form.Group>
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" name="password"></Form.Control>
+                    </Form.Group>
+                    </Col>
+                    <Col>
+                    <Form.Group>
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control type="password" name="password"></Form.Control>
+                    </Form.Group> 
+                    </Col>
+                    </Row>
+                    <Form.Group>
+            <Form.File
+              className="position-relative"
+              required
+              name="file"
+              label="File"
+              id="validationFormik107"
+              feedbackTooltip
+            />
+          </Form.Group>
+                    <Button variant="light">Register</Button>
+                </Container>
+                </div>
         )
     }
 }

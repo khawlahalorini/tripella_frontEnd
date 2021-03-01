@@ -9,47 +9,76 @@ import WishList from '../component/WishList.js'
 import Profile from '../user/Profile';
 import DropdownButton from '../component/DropdownButton.js';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Nav,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
-
-
-// import { Alert } from 'bootstrap';
+import { decode } from "jsonwebtoken";
+import { Alert } from "react-bootstrap";
+import NavsItem from './NavsItem.js';
 
 export default class Navs extends Component {
 
   state = {
     user: null,
-    filter: 'all'
-    // successMessage:null,
-    // dangerMessage:null,
+    successMessage:null,
+    dangerMessage:null
 
   };
-  // register 
-    registerHandler = (user) => {
-        axios 
-            .post("./user/Register.js", user)
-            .then((response) => {
-              console.log(response);
 
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token != null) {
+      let user = decode(token);
+      if (user) {
+        this.setState({
+          user: user
+        });
+      } else if (!user) {
+        localStorage.removeItem("token");
+        this.setState({
+        });
+      }
+    }
+  }
+  // register 
+    registerHandler = (userData) => {
+        axios 
+            .post("tripella/user/register", userData)
+            .then((response) => {
+              console.log(response.data);
+             this.setState({
+              successMessage: response.data 
+             })
             })
             .catch((error) => {
               console.log(error);
             });
       };
       // login 
-    loginHandler = (user) => {
+    loginHandler = (userData) => {
         axios 
-            .post("./user/Login.js", user)
+            .post("tripella/user/authenticate", userData)
             .then((response) => {
-              console.log(response);
-              
+              if (response.data.token != null) {
+                localStorage.setItem("token", response.data.token);
+                let user = decode(response.data.token);
+                console.log(response.data.token);
+                this.setState({
+                  user: user,
+                  successMessage: "Successfully logged in!!!"
+                });
+              } else {
+                this.setState({
+                  user: null,
+                });
+              }
             })
             .catch((error) => {
               console.log(error);
+              this.setState({
+              });
             });
-      };
+        };
       //home
       homeHandler = (user) => {
         axios 
@@ -124,39 +153,23 @@ AddPostHandler = (user) =>{
 
     render() {
 
-      // const successMessage = this.state.successMessage ? (
-      //   <Alert variant="success">{this.state.successMessage}</Alert>
-      // ) : null;
-      // const dangerMessage = this.state.dangerMessage ? (
-      //   <Alert variant="danger">{this.state.dangerMessage}</Alert>
-      // ) : null;
+      const successMessage = this.state.successMessage ?(
+        <Alert variant="success">{this.state.successMessage}</Alert>): null;
+      const dangerMessage = this.state.dangerMessage ? (
+        <Alert variant="danger">{this.state.dangerMessage}</Alert>) : null;
         return (
     <Router>
     
-      
-<nav class="navbar navbar-expand-lg bg-light navbar-light nav">
-  
-  <a class="navbar-brand" href="/home">
-    <img src={loogo} alt="logo" style={{width:"100%"}}/>
+    <div class="w3-display-container "> 
+     <DropdownButton class="w3-display-lift w3-xlarge " />    
+     <a  class="w3-right w3-section" href="/home">
+    <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a>
-  
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="/home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/register">Register</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/AllPlaces">All places</a>
-    </li>
-    <DropdownButton />
-  </ul>
-</nav>
-    
+     <div  class="w3-right w3-large w3-section">
+     <NavsItem  /></div>
+</div>
+      {successMessage}
+      {dangerMessage}
     <div>
          <Route
             path="/home"
@@ -168,39 +181,27 @@ AddPostHandler = (user) =>{
           ></Route>
           <Route
             path="/login"
-            component={() => <Login login={this.loginHandler} />
-            }
+            component={() => <Login login={this.loginHandler} />}
           ></Route>
-                    <Route
+          <Route
             path="/allplaces"
-            component={() => <AllPlaces allplaces={this.allplacesHandler} />
-            // component={() => <AllPlaces onClick={() => this.allplacesHandler('all')} className={`places-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}/>
-
-            }
+            component={() => <AllPlaces allplaces={this.allplacesHandler} />}
           ></Route>
           <Route
             path="/profile"
             component={() => <Profile profile={this.profileHandler} />}
           ></Route>
-          
-                    <Route
+          <Route
             path="/tripList"
             component={() => <TripList tripList={this.TripListHandler} />}
           ></Route>
-
-<Route
+          <Route
             path="/AddPost"
             component={() => <AddPost addPost={this.AddPostHandler} />}
           ></Route>
           <Route
             path="/wishList"
-
-
             component={() => <WishList wishList={this.WishListHandler} />
-
-            // component={() => <WishList onClick={() => this.WishListHandler('faves')} className={`places-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} />
-
-
             }
           ></Route> 
         </div>
@@ -208,22 +209,4 @@ AddPostHandler = (user) =>{
         )
     }
 }
-    {/* <div class="nav">
-      <Nav variant="tabs">
-        <Nav.Item>
-          <Nav.Link href="/home"><img src={loogo} style={{width:"100%"}}  /></Nav.Link>
-        </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/home">Home</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/register">Register</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/login">Login</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/allPlaces">All Places</Nav.Link>
-  </Nav.Item>
-  <DropdownButton  />
-</Nav> */}
+   
