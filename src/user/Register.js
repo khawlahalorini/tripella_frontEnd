@@ -21,7 +21,7 @@ export default class login extends Component {
                 <Container>
                     <Form.Group>
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" name="fristName" onChange={this.changeHandler}></Form.Control>
+                        <Form.Control type="text" name="firstName" onChange={this.changeHandler}></Form.Control>
                     </Form.Group> 
                     <Form.Group>
                         <Form.Label>Last Name</Form.Label>
