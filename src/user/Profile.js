@@ -7,7 +7,7 @@ import ProfileEditForm from "../user/ProfileEditForm.js";
 export default class Profile extends Component {
   profileEditHandler = (user) => {
     axios 
-        .post("src/user/Register.js", user)
+        .post("src/user/ProfileEditForm.js", user)
         .then((response) => {
           console.log(response);
 
