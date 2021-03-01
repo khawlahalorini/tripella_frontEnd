@@ -36,7 +36,7 @@ export default class PlaceDet extends Component {
     render() {
       let ModalClose =() => this.setState({ModalShow: false});
         return (
-        
+
 <Router>
  
   <div class=" w3-panel w3-card-4 w3-margin w3-round-large" >  
