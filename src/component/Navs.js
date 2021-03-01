@@ -14,6 +14,7 @@ import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
 import { decode } from "jsonwebtoken";
 import { Alert } from "react-bootstrap";
+import NavsItem from './NavsItem.js';
 
 export default class Navs extends Component {
 
@@ -159,28 +160,19 @@ AddPostHandler = (user) =>{
         return (
     <Router>
     
-<nav class="navbar navbar-expand-lg bg-light navbar-light nav">
-  
-  <a class="navbar-brand" href="/home">
-    <img src={loogo} alt="logo" style={{width:"100%"}}/>
+    <div class="w3-display-container "  style={{height:"300px;"}}> 
+     <DropdownButton class="w3-display-lift w3-xlarge"/>    
+     <a  class="w3-right" href="/home">
+    <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a>
-  
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="/home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/register">Register</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/AllPlaces">All places</a>
-    </li>
-    <DropdownButton />
-  </ul>
-</nav>
+     <div  class="w3-right w3-large">
+     <NavsItem  /></div>
+ 
+    
+   
+    
+</div>
+
       {successMessage}
       {dangerMessage}
     <div>
