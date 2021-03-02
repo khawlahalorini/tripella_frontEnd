@@ -9,15 +9,12 @@ export default class ProfileEditForm extends Component {
             newUser : props.user
         }
     }
-    handleChange= (event) =>{
-        const attributeToChange = event.target.name
-        const newValue = event.target.value
-        const updatedUser = {...this.state.newUser}
-        updatedUser[attributeToChange] = newValue
-        console.log(updatedUser)
-        this.setState({
-            newUser: updatedUser
-        })
+    changeHandler= (e) => {
+        let temp = {...this.state}
+        temp[e.target.name] = e.target.value;
+        this.setState(temp)
+        console.log(this.state);
+
     }
     handleSubmit =(event) =>{
         event.preventDefault()
@@ -26,8 +23,8 @@ export default class ProfileEditForm extends Component {
 
     render() {
         return (
-            <div>
-                <Container onSubmit={this.handleSubmit}>
+            <div className="3w-container w3-content" >
+            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>                <Container onSubmit={this.handleSubmit}>
                     <Form.Group >
                         <Form.Label>First Name</Form.Label>
                         <Form.Control type="text" name="fristName"
@@ -49,8 +46,8 @@ export default class ProfileEditForm extends Component {
                         onChange={this.handleChange}
                         ></Form.Control>
                     </Form.Group> 
-                    <Row>
-                        <Col>
+                    {/* <Row>
+                        <Col> */}
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password"
@@ -58,7 +55,7 @@ export default class ProfileEditForm extends Component {
                         onChange={this.handleChange}
                         ></Form.Control>
                     </Form.Group>
-                    </Col>
+                    {/* </Col>
                     <Col>
                     <Form.Group>
                         <Form.Label>Confirm Password</Form.Label>
@@ -68,8 +65,8 @@ export default class ProfileEditForm extends Component {
                         ></Form.Control>
                     </Form.Group> 
                     </Col>
-                    </Row>
-                    <Form.Group>
+                    </Row> */}
+                    {/* <Form.Group>
             <Form.File
               className="position-relative"
               required
@@ -80,9 +77,10 @@ export default class ProfileEditForm extends Component {
               value={this.state.newUser.file}
             onChange={this.handleChange}
             />
-          </Form.Group>
+          </Form.Group> */}
                     <Button variant="light" type="submit" value="Edit user">Save Edit</Button>
                 </Container>
+                </div>
                 </div>
         )
     }
