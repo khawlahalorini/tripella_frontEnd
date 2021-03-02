@@ -106,39 +106,6 @@ export default class Profile extends Component {
       </div>
 
       
-      // {/* //   <Card style={{ width: '18rem' }}>
-      //   <Card.Img variant="top" src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" />
-      //   <Card.Body>
-      //     <Card.Title>username</Card.Title>
-      //     {/* <Card.Title>{this.state.username}</Card.Title> */}
-      //     <Card.Text>Email</Card.Text>
-      //     {/* <Card.Text>{this.state.emailAddress}</Card.Text> */}
-      //     <Card.Text>Bio</Card.Text>
-      //   </Card.Body>
-      // </Card> */}
-
-      // // {/* <div class="card" style={{width:"400px"}}>
-      // <img class="card-img-top" src="img_avatar1.png" alt="Card image" style={{width:"100%"}} />
-      // <div class="card-body">
-      //   <h4 class="card-title">John Doe</h4>
-      //   <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-      //   <a href="#" class="btn btn-primary stretched-link">Edit Profile</a>
-      // </div>
-      // </div> */}
-
-
-
-
-
-      //     <div >
-      //         <img src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" alt=""/>
-      //         <h1>username</h1>
-      //         {/* <h1>{this.state.username}</h1> */}
-      //         <h3>Email</h3>
-      //         {/* <h3>{this.state.emailAddress}</h3> */}
-      //     <h3>Bio</h3>
-      //     {/* <ProfileEditForm/> */}
-      // </div>
 
 
     )
