@@ -65,8 +65,8 @@ export default class TripList extends Component {
 
         return (
 
-    <div class=" w3-panel w3-card-4 w3-margin w3-round-large" >  
-   <div class="w3-display-container ">
+            <div class=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
+            <div class="w3-display-container ">
       <img src="https://www.onyamagazine.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-20-at-1.00.51-pm-1024x679.png" alt="Avatar" class="w3-left w3-round w3-margin-right " width="25%"/>
       <h3 class=" w3-margin-top">Garden</h3>
       <hr/>
