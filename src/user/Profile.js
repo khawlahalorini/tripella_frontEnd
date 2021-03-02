@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import { Nav } from 'react-bootstrap';
 import ProfileEditForm from "../user/ProfileEditForm.js";
@@ -89,17 +89,13 @@ export default class Profile extends Component {
             <p>Bio</p>
             <br />
             <Router>
-              <Nav.Link href="/ProfileEditForm">
-            <div class="w3-section">
-              <button class="w3-button w3-grey">Edit profile</button>
-            </div>
-            </Nav.Link>
-            <div>
+            <Link to='/profileeditform'>
+   <button color='primary' >Edit Profile</button>
+</Link>
             <Route
-            path="/ProfileEditForm"
+            path="/profileeditform"
             component={() => <ProfileEditForm user={this.state.userData} editUser={this.profileEditHandler} />}
           ></Route>
-            </div>
             </Router>
           </div>
 
