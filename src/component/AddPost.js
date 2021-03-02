@@ -18,10 +18,11 @@ export default class AddPost extends Component {
     }
     render() {
         return (
-            <div>
-            <Container>
+            <div className="3w-container w3-content" >
+            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>            <Container>
                 <Row>
                     <Col>
+                    <br />
                 <Form.Group>
                     <Form.Label>Choose Type</Form.Label>
                     <Form.Control as="select" name="type">
@@ -33,6 +34,7 @@ export default class AddPost extends Component {
                 </Form.Group>
                  </Col>
                  <Col>
+                 <br />
                 <Form.Group>
                     <Form.Label>Place Name</Form.Label>
                     <Form.Control type="text" name="title" onChange={this.changeHandler}></Form.Control>
@@ -69,10 +71,12 @@ export default class AddPost extends Component {
           label="File"
           id="validationFormik107"
           feedbackTooltip
-        />
+        />                
+        <br />
+        <Button variant="light" onClick={this.postHandler}>Add</Button>
       </Form.Group>
-                <Button variant="light" onClick={this.postHandler}>Add</Button>
             </Container>
+            </div>
             </div>
         )
     }
