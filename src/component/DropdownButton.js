@@ -11,7 +11,7 @@ export default class DropdownButton extends Component {
         return (
             <Router>
 
-            <div class="w3-dropdown-hover w3-section">
+            <div class="w3-dropdown-hover w3-section w3-white">
                 <button class="w3-button w3-xlarge  w3-white">☰</button>
                 <div class="w3-dropdown-content w3-bar-block w3-border">
                 <a href="/profile" class="w3-bar-item w3-button">Profile</a>

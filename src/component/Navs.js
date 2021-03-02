@@ -53,14 +53,14 @@ export default class Navs extends Component {
             .catch((error) => {
               console.log(error);
             });
-        axios
-            .post("tripella/user/photo")
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+        // axios
+        //     .post("tripella/user/photo")
+        //     .then((response) => {
+        //       console.log(response);
+        //     })
+        //     .catch((error) => {
+        //       console.log(error);
+        //     });
       };
       // login 
     loginHandler = (userData) => {
@@ -77,7 +77,8 @@ export default class Navs extends Component {
                 });
               } else {
                 this.setState({
-                  user: null,
+                  user: null, 
+                  dangerMessage:"uaername or password not corect"
                 });
               }
             })
@@ -156,7 +157,7 @@ AddPostHandler = (post) =>{
         return (
     <Router>
     
-    <div class="w3-display-container "> 
+    <div class="w3-display-container w3-white"> 
      <DropdownButton class="w3-display-lift w3-xlarge " />    
      <a  class="w3-right w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
