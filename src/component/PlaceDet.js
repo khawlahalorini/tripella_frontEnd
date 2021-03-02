@@ -6,11 +6,6 @@ import axios from "axios";
 import { Nav, Button, ButtonToolbar} from 'react-bootstrap';
 import PopupDet from './PopupDet'
 
-
-
-
-
-
 export default class PlaceDet extends Component {
 
   constructor(props) {
