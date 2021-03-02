@@ -88,17 +88,17 @@ export default class TripList extends Component {
       let ModalClose =() => this.setState({ModalShow: false});
 
         return (
-            <div>
-        <button class="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
+            <div >
+                <div className="w3-container">
+        <button class="w3-button w3-xlargew3-panel w3-card-4 w3-round-large  w3-right w3-white"  style={{marginBottom:"10px ",}}
         onClick={() => this.setState({ModalShow: true})}>New Trip</button>
         <PopupTrip addTrip={this.addTrip}
         show={this.state.ModalShow}
         onHide={ModalClose}
-        />
-
-<Router>
-<div>
-<ul>
+        /> </div>
+        <Router>
+            <div className="w3-container">
+                <ul>
                    {this.state.trips.map((trip, index) => 
                    <div key={index} >
                             <div class=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
