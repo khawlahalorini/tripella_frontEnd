@@ -23,7 +23,10 @@ export default class PlaceDet extends Component {
   
   placeInfoHandler = (user) => {
     axios 
-        .post("src/component/PlaceInfo.js", user)
+        .post("src/component/PlaceInfo.js", user,      {
+          headers: {
+              "Authorization": "Bearer " + localStorage.getItem("token")
+          }})
         .then((response) => {
           console.log(response);
 
