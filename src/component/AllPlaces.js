@@ -35,7 +35,6 @@ componentDidMount(){
            
               <div>
                    {allPlace}
-
                 </div>
               
         )

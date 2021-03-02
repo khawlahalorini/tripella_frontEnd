@@ -42,12 +42,12 @@ export default class PlaceDet extends Component {
 
 <Router>
  
-  <div class=" w3-panel w3-card-4 w3-margin w3-round-large" >  
+  <div class=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
    <div class="w3-display-container ">
     <PlacesPIc places={this.props.places} /> 
       <h3 class=" w3-margin-top">{this.props.places.title}</h3>
-      <hr/>
-        <p>{this.props.places.overview}  
+      <hr />
+        <p>{this.props.places.description}  
          <Nav.Link href="/placeInfo">
         <p class="w3-opacity w3-tiny">Read more..</p>
         </Nav.Link></p>   
@@ -65,7 +65,7 @@ export default class PlaceDet extends Component {
   <div>
     <Route
     path="/placeInfo"
-    component={() => <PlaceInfo onClick={this.placeInfoHandler} />}
+    component={() => <PlaceInfo onClick={this.placeInfoHandler} place={this.props.places} />}
     ></Route>
   </div>
 </Router>
