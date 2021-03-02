@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 export default class login extends Component {
     state={
 
     }
      
-    registerHandler = () => {
+    registerHandler = () => {  
         this.props.register(this.state)
     }
     changeHandler= (e) => {
+      
         let temp = {...this.state}
         temp[e.target.name] = e.target.value;
         this.setState(temp)
@@ -53,6 +55,7 @@ export default class login extends Component {
               label="File"
               id="validationFormik107"
               feedbackTooltip
+              onChange={this.changeHandler}
             />
           </Form.Group>
           <Button variant="light" onClick={this.registerHandler}>Register</Button>

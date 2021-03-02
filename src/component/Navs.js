@@ -53,6 +53,14 @@ export default class Navs extends Component {
             .catch((error) => {
               console.log(error);
             });
+        axios
+            .post("tripella/user/photo")
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
       };
       // login 
     loginHandler = (userData) => {
