@@ -87,7 +87,7 @@ export default class login extends Component {
               feedbackTooltip
               onChange={this.changeHandler}
             /> */}          
-            <Button variant="light" onClick={this.registerHandler}>Register</Button>
+            <Button variant="light" onClick={this.registerHandler} >Register</Button>
           </Form.Group>
                 </Container>
                 </div> 
