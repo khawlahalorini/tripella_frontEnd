@@ -99,17 +99,17 @@ export default class Navs extends Component {
               console.log(error);
             });
       };
-      // profile
-      profileHandler = (user) =>{
-        axios 
-        .post("./user/Peofile.js", user)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    //   // profile
+    //   profileHandler = (user) =>{
+    //     axios 
+    //     .post("./user/Peofile.js", user)
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
     //trip list 
     TripListHandler = (user) =>{
       axios 
@@ -138,9 +138,14 @@ export default class Navs extends Component {
 AddPostHandler = (post) =>{
   axios 
 
-  .post("tripella/post/add", post)
+  .post("tripella/post/add", post, { headers: {
+    "Authorization": "Bearer " + localStorage.getItem("token")
+} })
   .then((response) => {
     console.log(response);
+    this.setState({
+          successMessage: response.data
+    })
   })
   .catch((error) => {
     console.log(error);
@@ -186,7 +191,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/profile"
-            component={() => <Profile profile={this.profileHandler} />}
+            component={() => <Profile/>}
           ></Route>
           <Route
             path="/tripList"

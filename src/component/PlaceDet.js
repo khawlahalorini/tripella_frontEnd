@@ -44,7 +44,7 @@ export default class PlaceDet extends Component {
     <PlacesPIc places={this.props.places} /> 
       <h3 class=" w3-margin-top">{this.props.places.title}</h3>
       <hr />
-        <p>{this.props.places.overview}  
+        <p>{this.props.places.description}  
          <Nav.Link href="/placeInfo">
         <p class="w3-opacity w3-tiny">Read more..</p>
         </Nav.Link></p>   
@@ -62,7 +62,7 @@ export default class PlaceDet extends Component {
   <div>
     <Route
     path="/placeInfo"
-    component={() => <PlaceInfo onClick={this.placeInfoHandler} />}
+    component={() => <PlaceInfo onClick={this.placeInfoHandler} place={this.props.places} />}
     ></Route>
   </div>
 </Router>

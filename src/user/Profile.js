@@ -20,10 +20,14 @@ export default class Profile extends Component {
   
   profileEditHandler = (user) => {
     axios 
-        .post("src/user/ProfileEditForm.js", user)
+        .post("tripella/user/update", user, { headers: {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+      } })
         .then((response) => {
           console.log(response);
-
+          this.setState({
+            userData:response.data
+          })
         })
         .catch((error) => {
           console.log(error);
@@ -92,8 +96,8 @@ export default class Profile extends Component {
             </Nav.Link>
             <div>
             <Route
-            exact path="/ProfileEditForm"
-            component={() => <ProfileEditForm user={this.state.userData} onClick={this.profileEditHandler} />}
+            path="/ProfileEditForm"
+            component={() => <ProfileEditForm user={this.state.userData} editUser={this.profileEditHandler} />}
           ></Route>
             </div>
             </Router>
