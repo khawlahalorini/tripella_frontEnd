@@ -42,8 +42,8 @@ export default class login extends Component {
     // }
     render() {
         return (
-            <div className="3w-display-container" >
-            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4 w3-display-middle w3-margin" style={{width:"900px"}}>
+            <div className="3w-container w3-content" >
+            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>
                 <Container>
                     <Form.Group>
                         <br />

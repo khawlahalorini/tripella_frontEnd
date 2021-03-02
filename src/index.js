@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-document.body.style.backgroundColor = "#99bbff"
+document.body.style.backgroundColor = "#ffe0b3"
 ReactDOM.render(
   <React.StrictMode>
     <App/>
