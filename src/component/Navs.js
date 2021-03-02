@@ -206,6 +206,7 @@ AddPostHandler = (post) =>{
             component={() => <WishList wishList={this.WishListHandler} />
             }
           ></Route> 
+          
         </div>
     </Router>
         )

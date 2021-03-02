@@ -27,11 +27,11 @@ export default class ProfileEditForm extends Component {
             <div className="3w-container w3-content" >
             <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>                
             <h1>hi</h1>
-            {/* <Container onSubmit={this.handleSubmit}> */}
-                    {/* <Form.Group >
+            <Container onSubmit={this.handleSubmit}> 
+                     <Form.Group >
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" name="fristName"
-                        value={this.state.newUser.fristName}
+                        <Form.Control type="text" name="firstName"
+                        value={this.state.newUser.firstName}
                         onChange={this.changeHandler}
                         ></Form.Control>
                     </Form.Group> 
@@ -49,16 +49,16 @@ export default class ProfileEditForm extends Component {
                         onChange={this.changeHandler}
                         ></Form.Control>
                     </Form.Group> 
-                    {/* <Row>
-                        <Col> */}
-                    {/* <Form.Group>
+                     <Row>
+                        <Col> 
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password"
                         value={this.state.newUser.password}
                         onChange={this.changeHandler}
                         ></Form.Control>
-                    </Form.Group> */}
-                    {/* </Col>
+                    </Form.Group> 
+                    </Col>
                     <Col>
                     <Form.Group>
                         <Form.Label>Confirm Password</Form.Label>
@@ -68,8 +68,8 @@ export default class ProfileEditForm extends Component {
                         ></Form.Control>
                     </Form.Group> 
                     </Col>
-                    </Row> */}
-                    {/* <Form.Group>
+                    </Row>
+                    <Form.Group>
             <Form.File
               className="position-relative"
               required
@@ -80,9 +80,9 @@ export default class ProfileEditForm extends Component {
               value={this.state.newUser.file}
             onChange={this.changeHandler}
             />
-          </Form.Group> */}
-                    {/* <Button variant="light" type="submit" value="Edit user">Save Edit</Button>
-                </Container> */}
+          </Form.Group> 
+                    <Button variant="light" type="submit" value="Edit user">Save Edit</Button>
+                </Container>
                 </div>
                 </div>
         )
