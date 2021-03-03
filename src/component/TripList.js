@@ -24,9 +24,7 @@ export default class TripList extends Component {
     }
 
     loadTripList = () => {
-        axios.get("tripella/user/triplist",  { headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token")
-        } })
+        axios.get("tripella/user/triplist")
         .then(response =>{
             console.log(response)
             this.setState({
@@ -40,9 +38,7 @@ export default class TripList extends Component {
     }
 
     addTrip = (trip) => {
-        axios.post("tripella/trip/add", trip, { headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token")
-        } })
+        axios.post("tripella/trip/add", trip)
         .then(response =>{
             console.log(response)
             this.setState({
@@ -57,9 +53,6 @@ export default class TripList extends Component {
 
     deleteTrip = (id) => {
             axios.delete(`/tripella/tripList/delete?id=${id}`, {
-                headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("token")
-                }
             })
                 .then(response => {
                     console.log("Deleted!")

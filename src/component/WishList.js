@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import axios from 'axios';
 import WishDet from './WishDet';
+import PlaceDet from './PlaceDet';
 
 export default class WishList extends Component {
   constructor(props) {
@@ -13,14 +14,16 @@ export default class WishList extends Component {
   }
 
   componentDidMount() {
+    axios.interceptors.request.use(req => {
+      req.headers.authorization = "Bearer " + localStorage.getItem("token");
+      return req;
+    });
+
     this.loadwishList();
   }
 
   loadwishList = () => {
-    axios.get("/tripella/user/wishlist",{
-      headers: {
-          "Authorization": "Bearer " + localStorage.getItem("token")
-      }})
+    axios.get("/tripella/user/wishlist")
       .then(response => {
         console.log(response)
         this.setState({
@@ -51,9 +54,8 @@ export default class WishList extends Component {
   //         })
   // }
   render() {
-
     const WishList = this.state.wishes.map((wish, index) => {
-      return <WishDet {...wish} key={index} />
+      return <WishDet wish={wish} key={index} />
     })
     return (
       <div >
