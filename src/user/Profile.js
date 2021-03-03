@@ -10,7 +10,7 @@ export default class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-       user:null,
+       user:this.props.user,
        userData:[],
        ModalShow: false
     }
@@ -21,10 +21,9 @@ export default class Profile extends Component {
   
   profileEditHandler = (user) => {
     axios 
-        .post("tripella/user/update", user, { headers: {
-          "Authorization": "Bearer " + localStorage.getItem("token")
-      } })
+        .put("tripella/user/update", user)
         .then((response) => {
+          console.log(user);
           console.log(response);
           this.setState({
             userData:response.data
@@ -37,9 +36,7 @@ export default class Profile extends Component {
 
   profileHandler = () => {
     axios 
-        .get("tripella/user/detail", { headers: {
-          "Authorization": "Bearer " + localStorage.getItem("token")
-      } })
+        .get("tripella/user/detail")
         .then((response) => {
           console.log(response);
           this.setState({
@@ -53,22 +50,7 @@ export default class Profile extends Component {
   };
 
   componentDidMount() {
-
-  let token = localStorage.getItem("token");
-  if (token != null) {
-    let user = decode(token);
     this.profileHandler()
-    if (user) {
-      console.log(user);
-      this.setState({
-        user: user,
-      });
-    } else if (!user) {
-      localStorage.removeItem("token");
-      this.setState({
-      });
-    }
-  }
 }
 
   render() {

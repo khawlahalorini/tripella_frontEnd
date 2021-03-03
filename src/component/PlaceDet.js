@@ -84,20 +84,23 @@ export default class PlaceDet extends Component {
     <PlacesPIc places={this.props.places} /> 
       <h3 className=" w3-margin-top">{this.props.places.title}</h3>
       <hr />
-        <p>{this.props.places.description}  
+        <p>{this.props.places.description}  </p> 
         <Link to="/placeInfo">
         <p class="w3-opacity w3-tiny" onClick={() => this.setState({InfoShow: true})}>Read more..</p>	         	        
-        </Link></p>   
+        </Link>  
 
-        <button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
+       {this.props.isAuth ?(
+         <div>
+          <button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
         onClick={() => this.setState({ModalShow: true})}>+</button>
         <PopupDet 
         show={this.state.ModalShow}
         onHide={ModalClose} 
-        postId={this.props.places.id}
+        postid={this.props.places.id}
         />
       <button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black" onClick={this.addToWish}>
         <i className='fas fa-heart' aria-hidden="true">&#xf004;</i> </button>  
+       </div> ): null }
       
   </div>
   </div>

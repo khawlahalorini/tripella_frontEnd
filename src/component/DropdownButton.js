@@ -18,13 +18,13 @@ export default class DropdownButton extends Component {
         return (
             <Router>
                 <div class="w3-bar w3-white">
-                    <a class="w3-right w3-section" href="/home">
+                    <a class="w3-left w3-section" href="/home">
                         <img src={loogo} alt="logo" style={{ width: "80%" }} />
                     </a>
                     {this.props.isAuth ? (
                         <div>
 
-                            <div class="w3-right w3-large w3-section">
+                            <div class="w3-left w3-large w3-section">
                                 <NavsItem logout={this.logoutHandler} isAuth={this.props.isAuth} />
                             </div>
 
@@ -43,7 +43,7 @@ export default class DropdownButton extends Component {
                     ) : (
                             <div>
 
-                                <div class="w3-right w3-large w3-section">
+                                <div class="w3-left w3-large w3-section">
                                     <NavsItem logout={this.logoutHandler} isAuth={this.props.isAuth} />
                                 </div>
 

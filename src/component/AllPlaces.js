@@ -29,7 +29,7 @@ componentDidMount(){
 }
     render() {
         const allPlace = this.state.allplaces.map((item, index) => {
-            return <PlaceDet places={item} key={index} />
+            return <PlaceDet isAuth ={ this.props.isAuth }  places={item} key={index} />
       })
          return (
            

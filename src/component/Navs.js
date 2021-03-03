@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Login from '../user/Login.js';
-import Logout from '../user/Logout.js';
 import Register from '../user/Register.js'
 import Home from '../component/Home.js'
 import axios from "axios";
@@ -97,7 +96,8 @@ export default class Navs extends Component {
                   isAuth: true,
                   user: user,
                   successMessage: "Successfully logged in!!!"
-                });
+                })
+                window.location.href = "/home";
               } else {
                 this.setState({
                   isAuth: false,
@@ -113,6 +113,18 @@ export default class Navs extends Component {
               });
             });
         };
+
+        //Logout
+        logoutHandler = () => {
+          // e.preventDefault();
+          localStorage.removeItem("token");
+          console.log("loggedout")
+
+          this.setState({
+            isAuth: true,
+            user:null
+          })
+          };
 //AddPost
 AddPostHandler = (post) =>{
   console.log(post);
@@ -136,7 +148,7 @@ AddPostHandler = (post) =>{
 
 
 // folter 
-
+  
     render() {
       const { isAuth } = this.state;
 
@@ -148,7 +160,11 @@ AddPostHandler = (post) =>{
     <Router>
     
     <div class="w3-display-container w3-white"> 
-     <DropdownButton class="w3-display-lift w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
+{/* <a  class="w3-left w3-section" href="/home">
+    <img src={loogo} alt="logo" style={{width:"80%"}}/>
+  </a> */}
+  
+     <DropdownButton class="w3-display-left w3-container w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
  
      
      {/* <div  class="w3-right w3-large w3-section">
@@ -158,10 +174,7 @@ AddPostHandler = (post) =>{
       {successMessage}
       {dangerMessage}
     <div>
-    
-           
-
-          <Route
+         <Route
             path="/home"
             component={() => <Home />}
           ></Route>
@@ -175,11 +188,11 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/allplaces"
-            component={() => <AllPlaces />}
+            component={() => <AllPlaces isAuth ={ isAuth }  />}
           ></Route>
           <Route
             path="/profile"
-            component={() => <Profile/>}
+            component={() => <Profile user= {this.state.user}/>}
           ></Route>
           <Route
             path="/tripList"

@@ -9,6 +9,8 @@ export default class ProfileEditForm extends Component {
         super(props);
         this.state ={
             newUser : props.user,
+            done: false,
+            password: []
            
         }
     }
@@ -23,9 +25,21 @@ export default class ProfileEditForm extends Component {
         })
         
     }
-    chcngePass = () => {
+
+    changeHandlerPassword=(event) =>{
+        const attributeToChange = event.target.name
+        const newValue = event.target.value
+        const updatedPassword = {...this.state.password}
+        updatedPassword[attributeToChange] = newValue
+        console.log(updatedPassword)
+        this.setState({
+            password: updatedPassword
+        })
+        
+    }
+    chcngePass = (password) => {
         axios
-        .put("tripella/user/chengepassword" , this.state.newUser )
+        .put("tripella/user/changepassword" , password )
         .then((response) => {
             console.log(response.data);
         })
@@ -36,7 +50,12 @@ export default class ProfileEditForm extends Component {
     handleSubmit =(event) =>{
         event.preventDefault()
         this.props.editUser(this.state.newUser);
-        this.chcngePass()
+        this.chcngePass(this.state.password)
+        window.location.href = "/profile";
+                this.setState({
+            done:true
+        })
+
     }
 
 
@@ -78,13 +97,13 @@ export default class ProfileEditForm extends Component {
                     <Form.Group>
                         <Form.Label>old Password</Form.Label>
                         <Form.Control type="password" name="oldPassword"
-                        onChange={this.changeHandler}
+                        onChange={this.changeHandlerPassword}
                         ></Form.Control>
                     </Form.Group> 
                     <Form.Group>
                         <Form.Label>new Password</Form.Label>
                         <Form.Control type="password" name="newPassword"
-                        onChange={this.changeHandler}
+                        onChange={this.changeHandlerPassword}
                         ></Form.Control>
                     </Form.Group> 
             
