@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class login extends Component {
@@ -11,6 +12,15 @@ export default class login extends Component {
         let temp = {...this.state}
         temp[e.target.name] = e.target.value;
         this.setState(temp)
+    }
+    forgotPass = () => {
+        axios.get("tripella/user/forgotpassword?email=" + this.state.emailAddress)
+        .then(response =>{
+            console.log(response.data)
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
     render() {
         return (
@@ -24,7 +34,8 @@ export default class login extends Component {
                     </Form.Group> 
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>           
+                        <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>    
+                        <span className="w3-small" onClick={this.forgotPass}>forgot password?</span>       
                         <br />          
                         <Button variant="light" onClick={this.loginHandler}>Login</Button>
 
