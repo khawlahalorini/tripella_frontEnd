@@ -3,8 +3,8 @@ import PlacesPIc from '../component/PlacesPIc'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PlaceInfo from "../component/PlaceInfo.js";
 import axios from "axios";
-import { Nav, Button, ButtonToolbar} from 'react-bootstrap';
 import PopupDet from './PopupDet'
+import '../App.css'
 
 
 
@@ -18,6 +18,7 @@ export default class PlaceDet extends Component {
   
     this.state = {
        ModalShow: false, 
+       InfoShow:false
     }
   }
   
@@ -35,34 +36,42 @@ export default class PlaceDet extends Component {
 
     render() {
       let ModalClose =() => this.setState({ModalShow: false});
+      let InfoClose =() => this.setState({InfoShow:false})
+
         return (
 
 <Router>
  
-  <div class=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
-   <div class="w3-display-container ">
+  <div className=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
+   <div className="w3-display-container ">
     <PlacesPIc places={this.props.places} /> 
-      <h3 class=" w3-margin-top">{this.props.places.title}</h3>
+      <h3 className=" w3-margin-top">{this.props.places.title}</h3>
       <hr />
         <p>{this.props.places.description}  
-         <Link to="/placeInfo">
-        <p class="w3-opacity w3-tiny">Read more..</p>
+        <Link to="/placeInfo">
+        <p class="w3-opacity w3-tiny" onClick={() => this.setState({InfoShow: true})}>Read more..</p>	         	        
         </Link></p>   
 
-        <button class="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
+        <button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
         onClick={() => this.setState({ModalShow: true})}>+</button>
         <PopupDet 
         show={this.state.ModalShow}
-        onHide={ModalClose}
+        onHide={ModalClose} 
+        postId={this.props.places.id}
         />
-      <button class="w3-bottomright w3-button w3-xlarge w3-right 3w-black">
-        <span class='fas fa-heart' aria-hidden="true">&#xf004;</span> </button>  
+      <button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black">
+        <span className='fas fa-heart' aria-hidden="true">&#xf004;</span> </button>  
   </div>
   </div>
   <div>
     <Route
     path="/placeInfo"
-    component={() => <PlaceInfo onClick={this.placeInfoHandler} place={this.props.places} />}
+    component={() => <PlaceInfo 
+                 onClick={this.placeInfoHandler} 
+                 place={this.props.places} 
+                 show={this.state.InfoShow}
+                 onHide={InfoClose}
+    />}
     ></Route>
   </div>
 </Router>

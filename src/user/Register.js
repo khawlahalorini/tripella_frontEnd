@@ -14,12 +14,12 @@ export default class login extends Component {
     }
      
     registerHandler = () => {  
-        this.props.register(this.state);
+        this.props.register(this.state.input);
     }
     changeHandler= (e) => {
-        let temp = {...this.state}
+        let temp = this.state.input
         temp[e.target.name] = e.target.value;
-        this.setState(temp)
+        this.setState({input:temp})
         // this.confirem();          
         console.log(this.state);
 
