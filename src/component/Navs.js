@@ -62,6 +62,9 @@ export default class Navs extends Component {
             })
             .catch((error) => {
               console.log(error);
+              this.setState({
+                dangerMessage: error.data
+              })
             });
         // axios
         //     .post("tripella/user/photo")
@@ -98,28 +101,6 @@ export default class Navs extends Component {
               });
             });
         };
-      //home
-      homeHandler = (user) => {
-        axios 
-            .post("./component/Home.js", user)
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-      };
-    //   // profile
-    //   profileHandler = (user) =>{
-    //     axios 
-    //     .post("./user/Peofile.js", user)
-    //     .then((response) => {
-    //       console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
     //trip list 
     TripListHandler = (user) =>{
       axios 
@@ -157,6 +138,7 @@ AddPostHandler = (post) =>{
   })
   .catch((error) => {
     console.log(error);
+
   });
 };
 // folter 
@@ -183,7 +165,7 @@ AddPostHandler = (post) =>{
     <div>
          <Route
             path="/home"
-            component={() => <Home register={this.homeHandler} />}
+            component={() => <Home />}
           ></Route>
           <Route
             path="/register"
