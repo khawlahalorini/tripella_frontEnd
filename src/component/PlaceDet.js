@@ -83,7 +83,7 @@ export default class PlaceDet extends Component {
  
   <div className=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
    <div className="w3-display-container ">
-   <button className="w3-bottomright w3-button w3-xlarge w3-right"onClick={ () => this.deletePlace(this.props.places.id)}>X</button>
+   {/* <button className="w3-bottomright w3-button w3-xlarge w3-right"onClick={ () => this.deletePlace(this.props.places.id)}>X</button> */}
     <PlacesPIc places={this.props.places} /> 
       <h3 className=" w3-margin-top">{this.props.places.title}</h3>
       <hr />
