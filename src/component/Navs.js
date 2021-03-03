@@ -30,6 +30,12 @@ export default class Navs extends Component {
     if (token != null) {
       let user = decode(token);
       if (user) {
+        
+        axios.interceptors.request.use(req => {
+          req.headers.authorization = "Bearer " + localStorage.getItem("token");
+          return req;
+        });
+        
         this.setState({
           user: user
         });
