@@ -65,7 +65,7 @@ export default class Profile extends Component {
             <br />
             <br />
             
-        <h2>{this.state.userData.firstName} {this.state.userData.lastName}</h2>
+        <h2>{this.state.userData.firstName} {this.state.userData.lastName} {this.state.userData.id}</h2>
             <h2>{this.state.user ? this.state.user.sub : null}</h2> 
             
             <br />

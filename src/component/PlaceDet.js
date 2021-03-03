@@ -5,6 +5,7 @@ import PlaceInfo from "../component/PlaceInfo.js";
 import axios from "axios";
 import PopupDet from './PopupDet'
 import '../App.css'
+import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
 
 
 
@@ -22,27 +23,12 @@ export default class PlaceDet extends Component {
     }
   }  
   componentDidMount() {
-    axios.interceptors.request.use(req => {
-        req.headers.authorization = "Bearer " + localStorage.getItem("token");
-        return req;
-      });
 }
-  
-  placeInfoHandler = (user) => {
-    axios 
-        .post("src/component/PlaceInfo.js", user)
-        .then((response) => {
-          console.log(response);
 
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  };
-
-  addToWish = (place) =>{
+  addToWish = (id) =>{
+    console.log(id);
     axios 
-    .put("tripella/user/wishList" , place)
+    .put(`tripella/user/wishlist?id=${id}`)
     .then((response) => {
       console.log(response);
     })
@@ -73,7 +59,6 @@ export default class PlaceDet extends Component {
     render() {
       let ModalClose =() => this.setState({ModalShow: false});
       let InfoClose =() => this.setState({InfoShow:false})
-
         return (
 
 <Router>
@@ -91,15 +76,14 @@ export default class PlaceDet extends Component {
 
        {this.props.isAuth ?(
          <div>
-          <button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
-        onClick={() => this.setState({ModalShow: true})}>+</button>
+          <Button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
+        onClick={() => this.setState({ModalShow: true})}>Add to trip</Button>
         <PopupDet 
         show={this.state.ModalShow}
         onHide={ModalClose} 
         postid={this.props.places.id}
         />
-      <button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black" onClick={this.addToWish}>
-        <i className='fas fa-heart' aria-hidden="true">&#xf004;</i> </button>  
+      <Button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black" onClick={ () => this.addToWish(this.props.places.id)}>Add to wish </Button>  
        </div> ): null }
       
   </div>
