@@ -41,6 +41,10 @@ export default class Navs extends Component {
         });
       } else if (!user) {
         localStorage.removeItem("token");
+        axios.interceptors.request.use(req => {
+          req.headers.authorization = "";
+          return req;
+        });
         this.setState({
         });
       }
@@ -144,13 +148,11 @@ export default class Navs extends Component {
 AddPostHandler = (post) =>{
   axios 
 
-  .post("tripella/post/add", post, { headers: {
-    "Authorization": "Bearer " + localStorage.getItem("token")
-} })
+  .post("tripella/post/add", post)
   .then((response) => {
     console.log(response);
     this.setState({
-          successMessage: response.data
+          successMessage: response.data.title + " has been added"
     })
   })
   .catch((error) => {

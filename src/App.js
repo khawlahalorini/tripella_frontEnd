@@ -3,6 +3,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./component/Footer.js";
 import Navs from './component/Navs';
+import axios from 'axios'
 
 
 
@@ -25,6 +26,7 @@ export default class App extends Component {
       //do something with error
       if (error+"" === "Error: Request failed with status code 403") {
         //TODO: redirect to login
+        console.log("FORBIDDEN 403")
       }
       return Promise.reject();
     });
