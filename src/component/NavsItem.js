@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import loogo from '../img2/loogo.png';
+import DropdownButton from '../component/DropdownButton.js';
 
 
 
@@ -12,10 +13,11 @@ export default class NavsItem extends Component {
     render() {
 
         return (
-         
+           
             <div class="w3-bar w3-white">
             {this.props.isAuth ? (
                 <div>
+
                 <a class="w3-bar-item w3-button" href="/login" onClick={this.logoutHandler}>Logout</a>
                 <a class="w3-bar-item w3-button" href="/AllPlaces">All places</a>
                 <a class="w3-bar-item w3-button" href="/home">Home</a>
@@ -28,10 +30,7 @@ export default class NavsItem extends Component {
                 
               </div>
               )}   
-                   
-                  
-
-
+             
             </div>
         )
     }

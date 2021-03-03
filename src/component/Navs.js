@@ -163,6 +163,8 @@ AddPostHandler = (post) =>{
     })
   });
 };
+
+
 // folter 
 
     render() {
@@ -176,14 +178,12 @@ AddPostHandler = (post) =>{
     <Router>
     
     <div class="w3-display-container w3-white"> 
-     <DropdownButton class="w3-display-lift w3-xlarge " /> 
+     <DropdownButton class="w3-display-lift w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
  
-     <a  class="w3-right w3-section" href="/home">
-    <img src={loogo} alt="logo" style={{width:"80%"}}/>
-  </a>
-     <div  class="w3-right w3-large w3-section">
+     
+     {/* <div  class="w3-right w3-large w3-section">
       <NavsItem logout={this.logoutHandler} isAuth ={ isAuth }/>
-     </div>
+     </div> */}
 </div>
       {successMessage}
       {dangerMessage}
