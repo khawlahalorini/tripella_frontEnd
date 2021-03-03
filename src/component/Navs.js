@@ -101,6 +101,7 @@ export default class Navs extends Component {
               });
             });
         };
+
 //AddPost
 AddPostHandler = (post) =>{
   console.log(post);
