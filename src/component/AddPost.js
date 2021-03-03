@@ -9,12 +9,14 @@ export default class AddPost extends Component {
     }
      
     postHandler = () => {
+        this.setState({type: document.getElementsByName('type')[0].value})
         this.props.addPost(this.state)
     }
     changeHandler= (e) => {
         let temp = {...this.state}
         temp[e.target.name] = e.target.value;
         this.setState(temp)
+        console.log(this.state)
     }
     render() {
         return (
@@ -30,7 +32,7 @@ export default class AddPost extends Component {
                     <option>Parks</option>
                     <option>Amusement Park</option>
                     <option>Markets</option>
-                    onChange={this.changeHandler} </Form.Control>
+                    </Form.Control>
                 </Form.Group>
                  </Col>
                  <Col>
