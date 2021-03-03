@@ -153,9 +153,9 @@ AddPostHandler = (post) =>{
   });
 };
 // folter 
-
+  
     render() {
-
+      const token = localStorage.getItem("token")
       const successMessage = this.state.successMessage ?(
         <Alert variant="success">{this.state.successMessage}</Alert>): null;
       const dangerMessage = this.state.dangerMessage ? (
@@ -164,16 +164,22 @@ AddPostHandler = (post) =>{
     <Router>
     
     <div class="w3-display-container w3-white"> 
-     <DropdownButton class="w3-display-lift w3-xlarge " />    
-     <a  class="w3-right w3-section" href="/home">
+    <a  class="w3-left w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a>
-     <div  class="w3-right w3-large w3-section">
+  
+     <DropdownButton class="w3-display-left w3-container w3-xlarge" />    
+
+     <div  class="w3-left w3-large w3-section">
      <NavsItem  /></div>
 </div>
       {successMessage}
       {dangerMessage}
     <div>
+    <Route
+            path="/"
+            component={() => <Home />}
+          ></Route>
          <Route
             path="/home"
             component={() => <Home />}
