@@ -30,11 +30,21 @@ export default class Navs extends Component {
     if (token != null) {
       let user = decode(token);
       if (user) {
+        
+        axios.interceptors.request.use(req => {
+          req.headers.authorization = "Bearer " + localStorage.getItem("token");
+          return req;
+        });
+        
         this.setState({
           user: user
         });
       } else if (!user) {
         localStorage.removeItem("token");
+        axios.interceptors.request.use(req => {
+          req.headers.authorization = "";
+          return req;
+        });
         this.setState({
         });
       }
@@ -53,6 +63,14 @@ export default class Navs extends Component {
             .catch((error) => {
               console.log(error);
             });
+        // axios
+        //     .post("tripella/user/photo")
+        //     .then((response) => {
+        //       console.log(response);
+        //     })
+        //     .catch((error) => {
+        //       console.log(error);
+        //     });
       };
       // login 
     loginHandler = (userData) => {
@@ -69,7 +87,8 @@ export default class Navs extends Component {
                 });
               } else {
                 this.setState({
-                  user: null,
+                  user: null, 
+                  dangerMessage:"uaername or password not corect"
                 });
               }
             })
@@ -90,29 +109,17 @@ export default class Navs extends Component {
               console.log(error);
             });
       };
-      // all places
-      allplacesHandler = (user) => {
-        axios 
-            .post("src/component/AllPlaces.js", user)
-
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-      };
-      // profile
-      profileHandler = (user) =>{
-        axios 
-        .post("./user/Peofile.js", user)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    //   // profile
+    //   profileHandler = (user) =>{
+    //     axios 
+    //     .post("./user/Peofile.js", user)
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
     //trip list 
     TripListHandler = (user) =>{
       axios 
@@ -138,12 +145,15 @@ export default class Navs extends Component {
     });
 };
 //AddPost
-AddPostHandler = (user) =>{
+AddPostHandler = (post) =>{
   axios 
 
-  .post("src/component/AddPost.js", user)
+  .post("tripella/post/add", post)
   .then((response) => {
     console.log(response);
+    this.setState({
+          successMessage: response.data.title + " has been added"
+    })
   })
   .catch((error) => {
     console.log(error);
@@ -160,7 +170,7 @@ AddPostHandler = (user) =>{
         return (
     <Router>
     
-    <div class="w3-display-container "> 
+    <div class="w3-display-container w3-white"> 
      <DropdownButton class="w3-display-lift w3-xlarge " />    
      <a  class="w3-right w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
@@ -185,11 +195,11 @@ AddPostHandler = (user) =>{
           ></Route>
           <Route
             path="/allplaces"
-            component={() => <AllPlaces allplaces={this.allplacesHandler} />}
+            component={() => <AllPlaces />}
           ></Route>
           <Route
             path="/profile"
-            component={() => <Profile profile={this.profileHandler} />}
+            component={() => <Profile/>}
           ></Route>
           <Route
             path="/tripList"
@@ -204,6 +214,7 @@ AddPostHandler = (user) =>{
             component={() => <WishList wishList={this.WishListHandler} />
             }
           ></Route> 
+          
         </div>
     </Router>
         )
