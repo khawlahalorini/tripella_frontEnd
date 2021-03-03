@@ -5,7 +5,7 @@ export default class PlacesPIc extends Component {
         return (
 
             
-            <img src={this.props.places.poster_path} alt="Avatar" class="w3-left w3-round w3-margin-right " width="25%" />
+            <img src={this.props.places} alt="Avatar" class="w3-left w3-round w3-margin-right " width="25%" />
         )
     }
 }

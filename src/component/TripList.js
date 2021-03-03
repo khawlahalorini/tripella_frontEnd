@@ -42,6 +42,7 @@ export default class TripList extends Component {
     }
 
     addTrip = (trip) => {
+
         console.log(trip);
         axios.post("tripella/trip/add", trip)
         .then(response =>{
