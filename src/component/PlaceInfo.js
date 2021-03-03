@@ -10,6 +10,12 @@ export default class PlaceInfo extends Component {
     }
     render() {
         return (
+
+            // <div>
+            //     <div class="w3-card-4" style={{width:"40%" , margin:"20px"}}>
+            //         <header class="w3-container w3-light-grey">
+
+
             
              <div class=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
             <div class="w3-display-container ">

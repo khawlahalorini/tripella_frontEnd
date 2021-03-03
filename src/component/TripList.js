@@ -88,6 +88,9 @@ export default class TripList extends Component {
       let ModalClose =() => this.setState({ModalShow: false});
 
         return (
+
+
+
             <div >
                 <div className="w3-container">
         <button class="w3-button w3-xlargew3-panel w3-card-4 w3-round-large  w3-right w3-white"  style={{marginBottom:"10px ",}}
