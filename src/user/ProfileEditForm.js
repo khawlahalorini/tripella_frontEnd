@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import { Container, Form, Button , Modal} from 'react-bootstrap'
 
@@ -21,12 +22,23 @@ export default class ProfileEditForm extends Component {
             newUser: updatedUser
         })
         
-
+    }
+    chcngePass = () => {
+        axios
+        .put("tripella/user/chengepassword" , this.state.newUser )
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     handleSubmit =(event) =>{
         event.preventDefault()
         this.props.editUser(this.state.newUser);
+        this.chcngePass()
     }
+
 
     render() {
 
@@ -40,7 +52,7 @@ export default class ProfileEditForm extends Component {
             centered
           >
                          
-            <Container onSubmit={this.handleSubmit}> 
+            <Container> 
             <br />
                      <Form.Group >
                         <Form.Label>First Name</Form.Label>
@@ -64,9 +76,14 @@ export default class ProfileEditForm extends Component {
                         ></Form.Control>
                     </Form.Group> 
                     <Form.Group>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password"
-                        value={this.state.newUser.password}
+                        <Form.Label>old Password</Form.Label>
+                        <Form.Control type="password" name="oldPassword"
+                        onChange={this.changeHandler}
+                        ></Form.Control>
+                    </Form.Group> 
+                    <Form.Group>
+                        <Form.Label>new Password</Form.Label>
+                        <Form.Control type="password" name="newPassword"
                         onChange={this.changeHandler}
                         ></Form.Control>
                     </Form.Group> 
@@ -83,7 +100,7 @@ export default class ProfileEditForm extends Component {
             onChange={this.changeHandler}
             />
           </Form.Group> 
-                    <Button variant="light" type="submit" value="Edit user">Save Edit</Button>{" "}
+                    <Button variant="light" type="submit" value="Edit user"  onClick={this.handleSubmit}>Save Edit</Button>{" "}
                     <Button variant="light" onClick={this.props.onHide}>cancel</Button>
 
                 </Container>

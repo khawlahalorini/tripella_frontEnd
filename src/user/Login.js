@@ -14,7 +14,8 @@ export default class login extends Component {
         this.setState(temp)
     }
     forgotPass = () => {
-        axios.get("tripella/user/forgotpassword?email=" + this.state.emailAddress)
+        axios
+        .put("tripella/user/forgotpassword?email=" + this.state.emailAddress)
         .then(response =>{
             console.log(response.data)
         })
