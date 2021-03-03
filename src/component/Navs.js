@@ -101,6 +101,30 @@ export default class Navs extends Component {
               });
             });
         };
+<<<<<<< HEAD
+      //home
+      homeHandler = (user) => {
+        axios 
+            .post("./component/Home.js", user)
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+      };
+    //   // profile
+    //   profileHandler = (user) =>{
+    //     axios 
+    //     .post("./user/Peofile.js", user)
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
+=======
     //trip list 
     TripListHandler = (user) =>{
       axios 
@@ -113,6 +137,7 @@ export default class Navs extends Component {
         console.log(error);
       });
   };
+>>>>>>> 596a6f0a48546a5f03fc7e5b84d3a73062726d39
   // wish list 
   WishListHandler = (user) =>{
     axios 
@@ -127,6 +152,7 @@ export default class Navs extends Component {
 };
 //AddPost
 AddPostHandler = (post) =>{
+  console.log(post);
   axios 
 
   .post("tripella/post/add", post)
@@ -185,7 +211,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/tripList"
-            component={() => <TripList tripList={this.TripListHandler} />}
+            component={() => <TripList />}
           ></Route>
           <Route
             path="/AddPost"
