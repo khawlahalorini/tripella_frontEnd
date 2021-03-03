@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import { Nav } from 'react-bootstrap';
 import ProfileEditForm from "../user/ProfileEditForm.js";
@@ -11,7 +11,8 @@ export default class Profile extends Component {
     super(props)
     this.state = {
        user:null,
-       userData:[]
+       userData:[],
+       ModalShow: false
     }
 
   }
@@ -72,7 +73,7 @@ export default class Profile extends Component {
 
   render() {
 
-
+    let ModalClose =() => this.setState({ModalShow: false});
     return (
       
       <div className="3w-container w3-content" >
@@ -89,17 +90,15 @@ export default class Profile extends Component {
             <p>Bio</p>
             <br />
             <Router>
-              <Nav.Link href="/ProfileEditForm">
-            <div class="w3-section">
-              <button class="w3-button w3-grey">Edit profile</button>
-            </div>
-            </Nav.Link>
-            <div>
+            <Link to='/profileeditform'>
+   <button color='primary' onClick={() => this.setState({ModalShow: true})}>Edit Profile</button>
+
+</Link>
             <Route
-            path="/ProfileEditForm"
-            component={() => <ProfileEditForm user={this.state.userData} editUser={this.profileEditHandler} />}
+            path="/profileeditform"
+            component={() => <ProfileEditForm user={this.state.userData} editUser={this.profileEditHandler} show={this.state.ModalShow}
+        onHide={ModalClose}/>}
           ></Route>
-            </div>
             </Router>
           </div>
 
@@ -107,39 +106,6 @@ export default class Profile extends Component {
       </div>
 
       
-      // {/* //   <Card style={{ width: '18rem' }}>
-      //   <Card.Img variant="top" src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" />
-      //   <Card.Body>
-      //     <Card.Title>username</Card.Title>
-      //     {/* <Card.Title>{this.state.username}</Card.Title> */}
-      //     <Card.Text>Email</Card.Text>
-      //     {/* <Card.Text>{this.state.emailAddress}</Card.Text> */}
-      //     <Card.Text>Bio</Card.Text>
-      //   </Card.Body>
-      // </Card> */}
-
-      // // {/* <div class="card" style={{width:"400px"}}>
-      // <img class="card-img-top" src="img_avatar1.png" alt="Card image" style={{width:"100%"}} />
-      // <div class="card-body">
-      //   <h4 class="card-title">John Doe</h4>
-      //   <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-      //   <a href="#" class="btn btn-primary stretched-link">Edit Profile</a>
-      // </div>
-      // </div> */}
-
-
-
-
-
-      //     <div >
-      //         <img src="https://psgpharma.ac.in/wp-content/uploads/2019/02/empty-img.jpg" alt=""/>
-      //         <h1>username</h1>
-      //         {/* <h1>{this.state.username}</h1> */}
-      //         <h3>Email</h3>
-      //         {/* <h3>{this.state.emailAddress}</h3> */}
-      //     <h3>Bio</h3>
-      //     {/* <ProfileEditForm/> */}
-      // </div>
 
 
     )

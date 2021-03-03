@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
-import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
+import { Container, Form, Button , Modal} from 'react-bootstrap'
+
 
 export default class ProfileEditForm extends Component {
 
     constructor(props){
         super(props);
         this.state ={
-            newUser : props.user
+            newUser : props.user,
+           
         }
     }
-    changeHandler= (e) => {
-        let temp = {...this.state}
-        temp[e.target.name] = e.target.value;
-        this.setState(temp)
-        console.log(this.state);
+    changeHandler= (event) => {
+        const attributeToChange = event.target.name
+        const newValue = event.target.value
+        const updatedUser = {...this.state.newUser}
+        updatedUser[attributeToChange] = newValue
+        console.log(updatedUser)
+        this.setState({
+            newUser: updatedUser
+        })
         
 
     }
@@ -23,15 +29,23 @@ export default class ProfileEditForm extends Component {
     }
 
     render() {
+
         return (
-            <div className="3w-container w3-content" >
-            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>                
-            <h1>hi</h1>
-            {/* <Container onSubmit={this.handleSubmit}> */}
-                    {/* <Form.Group >
+        <div className="3w-container w3-content" >
+            <div className=" w3-container w3-round-xxlarge w3-white w3-card-4  w3-margin w3-row-padding" style={{width:"900px"}}>   
+            <Modal
+            {...this.props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+                         
+            <Container onSubmit={this.handleSubmit}> 
+            <br />
+                     <Form.Group >
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" name="fristName"
-                        value={this.state.newUser.fristName}
+                        <Form.Control type="text" name="firstName"
+                        value={this.state.newUser.firstName}
                         onChange={this.changeHandler}
                         ></Form.Control>
                     </Form.Group> 
@@ -49,27 +63,15 @@ export default class ProfileEditForm extends Component {
                         onChange={this.changeHandler}
                         ></Form.Control>
                     </Form.Group> 
-                    {/* <Row>
-                        <Col> */}
-                    {/* <Form.Group>
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password"
                         value={this.state.newUser.password}
                         onChange={this.changeHandler}
                         ></Form.Control>
-                    </Form.Group> */}
-                    {/* </Col>
-                    <Col>
-                    <Form.Group>
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" name="password"
-                        value={this.state.newUser.password}
-                        onChange={this.changeHandler}
-                        ></Form.Control>
                     </Form.Group> 
-                    </Col>
-                    </Row> */}
-                    {/* <Form.Group>
+            
+                    <Form.Group>
             <Form.File
               className="position-relative"
               required
@@ -80,11 +82,15 @@ export default class ProfileEditForm extends Component {
               value={this.state.newUser.file}
             onChange={this.changeHandler}
             />
-          </Form.Group> */}
-                    {/* <Button variant="light" type="submit" value="Edit user">Save Edit</Button>
-                </Container> */}
+          </Form.Group> 
+                    <Button variant="light" type="submit" value="Edit user">Save Edit</Button>{" "}
+                    <Button variant="light" onClick={this.props.onHide}>cancel</Button>
+
+                </Container>
+                </Modal>
                 </div>
                 </div>
+                
         )
     }
 }
