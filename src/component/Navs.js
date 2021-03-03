@@ -101,18 +101,6 @@ export default class Navs extends Component {
               });
             });
         };
-  // wish list 
-  WishListHandler = (user) =>{
-    axios 
-
-    .post("src/component/WishList.js", user)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
 //AddPost
 AddPostHandler = (post) =>{
   console.log(post);
@@ -182,7 +170,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/wishList"
-            component={() => <WishList wishList={this.WishListHandler} />
+            component={() => <WishList />
             }
           ></Route> 
           
