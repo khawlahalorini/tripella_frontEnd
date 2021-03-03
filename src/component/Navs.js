@@ -120,18 +120,6 @@ export default class Navs extends Component {
     //       console.log(error);
     //     });
     // };
-    //trip list 
-    TripListHandler = (user) =>{
-      axios 
-
-      .post("src/component/TripList.js", user)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   // wish list 
   WishListHandler = (user) =>{
     axios 
@@ -146,6 +134,7 @@ export default class Navs extends Component {
 };
 //AddPost
 AddPostHandler = (post) =>{
+  console.log(post);
   axios 
 
   .post("tripella/post/add", post)
@@ -203,7 +192,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/tripList"
-            component={() => <TripList tripList={this.TripListHandler} />}
+            component={() => <TripList />}
           ></Route>
           <Route
             path="/AddPost"
