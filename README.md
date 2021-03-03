@@ -14,19 +14,17 @@ Imagine that you want to travel to a city with a group of friends, but you do no
 ## Back-End 
  [Link to Back-End](https://git.generalassemb.ly/arelyas/Tripella_BackEnd)
 ## Images
-#### Wireframes
-* Home Page
+### Wireframes
 ![ ](ReadMe/img/homePage.png)
-* All Places
 ![ ](ReadMe/img/all_placesPage.png)
-* list Trip 
 ![ ](ReadMe/img/trop_listPage.png)
-* Wish List 
 ![ ](ReadMe/img/wishlistPage.png)
-* Register 
 ![ ](ReadMe/img/registerPage.png)
-* Login 
 ![ ](ReadMe/img/loginPage.png)
-* Profile 
 ![ ](ReadMe/img/profilepage.png)
-#### Screenshot
+### Screenshot
+![ ](ReadMe/secren/img1.png)
+![ ](ReadMe/secren/img2.png)
+![ ](ReadMe/secren/img3.png)
+![ ](ReadMe/secren/img4.png)
+![ ](ReadMe/secren/img5.png)
