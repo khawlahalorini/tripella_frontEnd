@@ -28,7 +28,7 @@ export default class TripList extends Component {
             "Authorization": "Bearer " + localStorage.getItem("token")
         } })
         .then(response =>{
-            console.log(response)
+            console.log(response.data)
             this.setState({
                 trips: response.data
             })
