@@ -48,7 +48,7 @@ export default class AddPost extends Component {
                     <Form.Control type="textarea" name="description" onChange={this.changeHandler} ></Form.Control>
                 </Form.Group> 
                 <Form.Group>
-                    <Form.Label>information</Form.Label>
+                    <Form.Label>Information</Form.Label>
                     <Form.Control type="text" name="information" onChange={this.changeHandler}></Form.Control>
                 </Form.Group> 
                 <Row>
@@ -60,7 +60,7 @@ export default class AddPost extends Component {
                 </Col>
                  <Col>
                 <Form.Group>
-                    <Form.Label>city</Form.Label>
+                    <Form.Label>City</Form.Label>
                     <Form.Control type="text" name="city" onChange={this.changeHandler}></Form.Control>
                 </Form.Group>
                 </Col> 

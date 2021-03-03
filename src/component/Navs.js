@@ -62,6 +62,9 @@ export default class Navs extends Component {
             })
             .catch((error) => {
               console.log(error);
+              this.setState({
+                dangerMessage: error.data
+              })
             });
         // axios
         //     .post("tripella/user/photo")
@@ -98,6 +101,7 @@ export default class Navs extends Component {
               });
             });
         };
+<<<<<<< HEAD
       //home
       homeHandler = (user) => {
         axios 
@@ -120,6 +124,20 @@ export default class Navs extends Component {
     //       console.log(error);
     //     });
     // };
+=======
+    //trip list 
+    TripListHandler = (user) =>{
+      axios 
+
+      .post("src/component/TripList.js", user)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+>>>>>>> 596a6f0a48546a5f03fc7e5b84d3a73062726d39
   // wish list 
   WishListHandler = (user) =>{
     axios 
@@ -146,6 +164,7 @@ AddPostHandler = (post) =>{
   })
   .catch((error) => {
     console.log(error);
+
   });
 };
 // folter 
@@ -172,7 +191,7 @@ AddPostHandler = (post) =>{
     <div>
          <Route
             path="/home"
-            component={() => <Home register={this.homeHandler} />}
+            component={() => <Home />}
           ></Route>
           <Route
             path="/register"
