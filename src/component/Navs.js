@@ -101,7 +101,6 @@ export default class Navs extends Component {
               });
             });
         };
-<<<<<<< HEAD
       //home
       homeHandler = (user) => {
         axios 
@@ -124,20 +123,6 @@ export default class Navs extends Component {
     //       console.log(error);
     //     });
     // };
-=======
-    //trip list 
-    TripListHandler = (user) =>{
-      axios 
-
-      .post("src/component/TripList.js", user)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
->>>>>>> 596a6f0a48546a5f03fc7e5b84d3a73062726d39
   // wish list 
   WishListHandler = (user) =>{
     axios 
