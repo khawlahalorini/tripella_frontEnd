@@ -26,10 +26,10 @@ export default class ProfileEditForm extends Component {
     chcngePass = () => {
         axios
         .put("tripella/user/chengepassword" , this.state.newUser )
-        .then(response => {
+        .then((response) => {
             console.log(response.data);
         })
-        .catch(error => {
+        .catch((error) => {
             console.log(error);
         })
     }
