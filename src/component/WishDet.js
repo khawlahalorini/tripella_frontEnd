@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import PlacesPIc from './PlacesPIc'
+
+
+import PlacesPIc from '../component/PlacesPIc.js'
+
 
 export default class WishDet extends Component {
     render() {

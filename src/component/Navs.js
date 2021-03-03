@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Login from '../user/Login.js';
+import Logout from '../user/Logout.js';
 import Register from '../user/Register.js'
 import Home from '../component/Home.js'
 import axios from "axios";
@@ -8,17 +9,19 @@ import TripList from '../component/TripList.js'
 import WishList from '../component/WishList.js'
 import Profile from '../user/Profile';
 import DropdownButton from '../component/DropdownButton.js';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
 import { decode } from "jsonwebtoken";
 import { Alert } from "react-bootstrap";
 import NavsItem from './NavsItem.js';
+import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
 
 export default class Navs extends Component {
 
   state = {
+    isAuth: false,
     user: null,
     successMessage:null,
     dangerMessage:null
@@ -30,6 +33,9 @@ export default class Navs extends Component {
     if (token != null) {
       let user = decode(token);
       if (user) {
+        this.setState({
+          isAuth: true
+        })
         
         axios.interceptors.request.use(req => {
           req.headers.authorization = "Bearer " + localStorage.getItem("token");
@@ -41,6 +47,9 @@ export default class Navs extends Component {
         });
       } else if (!user) {
         localStorage.removeItem("token");
+        this.setState({
+          isAuth: false
+        })
         axios.interceptors.request.use(req => {
           req.headers.authorization = "";
           return req;
@@ -62,6 +71,9 @@ export default class Navs extends Component {
             })
             .catch((error) => {
               console.log(error);
+              this.setState({
+     
+              })
             });
         // axios
         //     .post("tripella/user/photo")
@@ -82,56 +94,37 @@ export default class Navs extends Component {
                 let user = decode(response.data.token);
                 console.log(response.data.token);
                 this.setState({
+                  isAuth: true,
                   user: user,
                   successMessage: "Successfully logged in!!!"
                 });
               } else {
                 this.setState({
+                  isAuth: false,
                   user: null, 
-                  dangerMessage:"uaername or password not corect"
+                  dangerMessage:"username or password not correct"
                 });
               }
             })
             .catch((error) => {
               console.log(error);
               this.setState({
+                isAuth: true
               });
             });
         };
-      //home
-      homeHandler = (user) => {
-        axios 
-            .post("./component/Home.js", user)
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-      };
-    //   // profile
-    //   profileHandler = (user) =>{
-    //     axios 
-    //     .post("./user/Peofile.js", user)
-    //     .then((response) => {
-    //       console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
-    //trip list 
-    TripListHandler = (user) =>{
-      axios 
 
-      .post("src/component/TripList.js", user)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+        //Logout
+        logoutHandler = () => {
+          // e.preventDefault();
+          localStorage.removeItem("token");
+          console.log("loggedout")
+
+          this.setState({
+            isAuth: true,
+            user:null
+          })
+          };
   // wish list 
   WishListHandler = (user) =>{
     axios 
@@ -139,29 +132,41 @@ export default class Navs extends Component {
     .post("src/component/WishList.js", user)
     .then((response) => {
       console.log(response);
+      this.setState({
+        isAuth: true
+      })
     })
     .catch((error) => {
       console.log(error);
+      this.setState({
+        isAuth: true
+      })
     });
 };
 //AddPost
 AddPostHandler = (post) =>{
+  console.log(post);
   axios 
 
   .post("tripella/post/add", post)
   .then((response) => {
     console.log(response);
     this.setState({
+      isAuth:true,
           successMessage: response.data.title + " has been added"
     })
   })
   .catch((error) => {
     console.log(error);
+    this.setState({
+      isAuth: true
+    })
   });
 };
 // folter 
 
     render() {
+      const { isAuth } = this.state;
 
       const successMessage = this.state.successMessage ?(
         <Alert variant="success">{this.state.successMessage}</Alert>): null;
@@ -171,19 +176,24 @@ AddPostHandler = (post) =>{
     <Router>
     
     <div class="w3-display-container w3-white"> 
-     <DropdownButton class="w3-display-lift w3-xlarge " />    
+     <DropdownButton class="w3-display-lift w3-xlarge " /> 
+ 
      <a  class="w3-right w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a>
      <div  class="w3-right w3-large w3-section">
-     <NavsItem  /></div>
+      <NavsItem logout={this.logoutHandler} isAuth ={ isAuth }/>
+     </div>
 </div>
       {successMessage}
       {dangerMessage}
     <div>
-         <Route
+    
+           
+
+          <Route
             path="/home"
-            component={() => <Home register={this.homeHandler} />}
+            component={() => <Home />}
           ></Route>
           <Route
             path="/register"
@@ -203,7 +213,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/tripList"
-            component={() => <TripList tripList={this.TripListHandler} />}
+            component={() => <TripList />}
           ></Route>
           <Route
             path="/AddPost"

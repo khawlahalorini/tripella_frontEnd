@@ -20,13 +20,17 @@ export default class TripList extends Component {
     }
 
     componentDidMount() {
+        axios.interceptors.request.use(req => {
+            req.headers.authorization = "Bearer " + localStorage.getItem("token");
+            return req;
+          });
         this.loadTripList();
     }
 
     loadTripList = () => {
         axios.get("tripella/user/triplist")
         .then(response =>{
-            console.log(response)
+            console.log(response.data)
             this.setState({
                 trips: response.data
             })
@@ -38,6 +42,8 @@ export default class TripList extends Component {
     }
 
     addTrip = (trip) => {
+
+        console.log(trip);
         axios.post("tripella/trip/add", trip)
         .then(response =>{
             console.log(response)
