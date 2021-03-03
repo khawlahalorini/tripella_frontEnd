@@ -58,25 +58,10 @@ export default class login extends Component {
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" name="emailAddress" onChange={this.changeHandler}></Form.Control>
                     </Form.Group> 
-                    {/* <Row> */}
-                        {/* <Col> */}
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password" onChange={this.changeHandler}></Form.Control>
                     </Form.Group>
-                    {/* </Col> */}
-                    {/* <Col>
-                    <Form.Group>
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control 
-                        type="password" 
-                        name="confirm_password" 
-                        onChange={this.changeHandler}>
-                        </Form.Control>
-                    </Form.Group>                         
-                    <div className="text-danger">{this.state.errors.confirm_password}</div>
-                    </Col> */}
-                    {/* </Row> */}
                     <Form.Group>
             {/* <Form.File
               className="position-relative"
