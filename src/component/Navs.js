@@ -63,7 +63,7 @@ export default class Navs extends Component {
             .catch((error) => {
               console.log(error);
               this.setState({
-                dangerMessage: error.data
+     
               })
             });
         // axios
