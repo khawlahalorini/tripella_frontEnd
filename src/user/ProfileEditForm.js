@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import { Container, Form, Button , Modal} from 'react-bootstrap'
 
@@ -8,6 +9,8 @@ export default class ProfileEditForm extends Component {
         super(props);
         this.state ={
             newUser : props.user,
+            done: false,
+            password: []
            
         }
     }
@@ -21,12 +24,40 @@ export default class ProfileEditForm extends Component {
             newUser: updatedUser
         })
         
+    }
 
+    changeHandlerPassword=(event) =>{
+        const attributeToChange = event.target.name
+        const newValue = event.target.value
+        const updatedPassword = {...this.state.password}
+        updatedPassword[attributeToChange] = newValue
+        console.log(updatedPassword)
+        this.setState({
+            password: updatedPassword
+        })
+        
+    }
+    chcngePass = (password) => {
+        axios
+        .put("tripella/user/changepassword" , password )
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
     handleSubmit =(event) =>{
         event.preventDefault()
         this.props.editUser(this.state.newUser);
+        this.chcngePass(this.state.password)
+        window.location.href = "/profile";
+                this.setState({
+            done:true
+        })
+
     }
+
 
     render() {
 
@@ -40,7 +71,7 @@ export default class ProfileEditForm extends Component {
             centered
           >
                          
-            <Container onSubmit={this.handleSubmit}> 
+            <Container> 
             <br />
                      <Form.Group >
                         <Form.Label>First Name</Form.Label>
@@ -64,10 +95,15 @@ export default class ProfileEditForm extends Component {
                         ></Form.Control>
                     </Form.Group> 
                     <Form.Group>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password"
-                        value={this.state.newUser.password}
-                        onChange={this.changeHandler}
+                        <Form.Label>old Password</Form.Label>
+                        <Form.Control type="password" name="oldPassword"
+                        onChange={this.changeHandlerPassword}
+                        ></Form.Control>
+                    </Form.Group> 
+                    <Form.Group>
+                        <Form.Label>new Password</Form.Label>
+                        <Form.Control type="password" name="newPassword"
+                        onChange={this.changeHandlerPassword}
                         ></Form.Control>
                     </Form.Group> 
             
@@ -83,7 +119,7 @@ export default class ProfileEditForm extends Component {
             onChange={this.changeHandler}
             />
           </Form.Group> 
-                    <Button variant="light" type="submit" value="Edit user">Save Edit</Button>{" "}
+                    <Button variant="light" type="submit" value="Edit user"  onClick={this.handleSubmit}>Save Edit</Button>{" "}
                     <Button variant="light" onClick={this.props.onHide}>cancel</Button>
 
                 </Container>

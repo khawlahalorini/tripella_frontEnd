@@ -17,7 +17,7 @@ export default class App extends Component {
   render() {
 
     axios.interceptors.request.use(req => {
-      req.baseURL="http://161.35.211.4:8080/"
+      req.baseURL="http://localhost:8080/"
       return req;
     });
 

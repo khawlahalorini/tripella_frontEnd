@@ -8,17 +8,19 @@ import TripList from '../component/TripList.js'
 import WishList from '../component/WishList.js'
 import Profile from '../user/Profile';
 import DropdownButton from '../component/DropdownButton.js';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllPlaces from '../component/AllPlaces.js';
 import AddPost from '../component/AddPost.js';
 import { decode } from "jsonwebtoken";
 import { Alert } from "react-bootstrap";
 import NavsItem from './NavsItem.js';
+import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
 
 export default class Navs extends Component {
 
   state = {
+    isAuth: false,
     user: null,
     successMessage:null,
     dangerMessage:null
@@ -30,6 +32,9 @@ export default class Navs extends Component {
     if (token != null) {
       let user = decode(token);
       if (user) {
+        this.setState({
+          isAuth: true
+        })
         
         axios.interceptors.request.use(req => {
           req.headers.authorization = "Bearer " + localStorage.getItem("token");
@@ -41,6 +46,9 @@ export default class Navs extends Component {
         });
       } else if (!user) {
         localStorage.removeItem("token");
+        this.setState({
+          isAuth: false
+        })
         axios.interceptors.request.use(req => {
           req.headers.authorization = "";
           return req;
@@ -63,7 +71,7 @@ export default class Navs extends Component {
             .catch((error) => {
               console.log(error);
               this.setState({
-                dangerMessage: error.data
+     
               })
             });
         // axios
@@ -85,56 +93,38 @@ export default class Navs extends Component {
                 let user = decode(response.data.token);
                 console.log(response.data.token);
                 this.setState({
+                  isAuth: true,
                   user: user,
                   successMessage: "Successfully logged in!!!"
-                });
+                })
+                window.location.href = "/home";
               } else {
                 this.setState({
+                  isAuth: false,
                   user: null, 
-                  dangerMessage:"uaername or password not corect"
+                  dangerMessage:"username or password not correct"
                 });
               }
             })
             .catch((error) => {
               console.log(error);
               this.setState({
+                isAuth: true
               });
             });
         };
-      //home
-      homeHandler = (user) => {
-        axios 
-            .post("./component/Home.js", user)
-            .then((response) => {
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-      };
-    //   // profile
-    //   profileHandler = (user) =>{
-    //     axios 
-    //     .post("./user/Peofile.js", user)
-    //     .then((response) => {
-    //       console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
-  // wish list 
-  WishListHandler = (user) =>{
-    axios 
 
-    .post("src/component/WishList.js", user)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+        //Logout
+        logoutHandler = () => {
+          // e.preventDefault();
+          localStorage.removeItem("token");
+          console.log("loggedout")
+
+          this.setState({
+            isAuth: true,
+            user:null
+          })
+          };
 //AddPost
 AddPostHandler = (post) =>{
   console.log(post);
@@ -144,18 +134,24 @@ AddPostHandler = (post) =>{
   .then((response) => {
     console.log(response);
     this.setState({
+      isAuth:true,
           successMessage: response.data.title + " has been added"
     })
   })
   .catch((error) => {
     console.log(error);
-
+    this.setState({
+      isAuth: true
+    })
   });
 };
+
+
 // folter 
   
     render() {
-      const token = localStorage.getItem("token")
+      const { isAuth } = this.state;
+
       const successMessage = this.state.successMessage ?(
         <Alert variant="success">{this.state.successMessage}</Alert>): null;
       const dangerMessage = this.state.dangerMessage ? (
@@ -164,22 +160,20 @@ AddPostHandler = (post) =>{
     <Router>
     
     <div class="w3-display-container w3-white"> 
-    <a  class="w3-left w3-section" href="/home">
+{/* <a  class="w3-left w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
-  </a>
+  </a> */}
   
-     <DropdownButton class="w3-display-left w3-container w3-xlarge" />    
-
-     <div  class="w3-left w3-large w3-section">
-     <NavsItem  /></div>
+     <DropdownButton class="w3-display-left w3-container w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
+ 
+     
+     {/* <div  class="w3-right w3-large w3-section">
+      <NavsItem logout={this.logoutHandler} isAuth ={ isAuth }/>
+     </div> */}
 </div>
       {successMessage}
       {dangerMessage}
     <div>
-    <Route
-            path="/"
-            component={() => <Home />}
-          ></Route>
          <Route
             path="/home"
             component={() => <Home />}
@@ -194,11 +188,11 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/allplaces"
-            component={() => <AllPlaces />}
+            component={() => <AllPlaces isAuth ={ isAuth }  />}
           ></Route>
           <Route
             path="/profile"
-            component={() => <Profile/>}
+            component={() => <Profile user= {this.state.user}/>}
           ></Route>
           <Route
             path="/tripList"
@@ -210,7 +204,7 @@ AddPostHandler = (post) =>{
           ></Route>
           <Route
             path="/wishList"
-            component={() => <WishList wishList={this.WishListHandler} />
+            component={() => <WishList />
             }
           ></Route> 
           

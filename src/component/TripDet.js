@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import PlaceDet from './PlaceDet';
 
 export default class TripDet extends Component {
 
@@ -13,7 +14,7 @@ export default class TripDet extends Component {
         console.log(trip)
         axios.get(`tripella/detail/trip?id=${trip}`)
         .then(response =>{
-            console.log(response)
+            console.log(response.data)
 
             this.setState({
                 details : response.data
@@ -27,11 +28,12 @@ export default class TripDet extends Component {
 
 
     render() {
+        const alldetail = this.state.details.map((detail, index) => {
+            return <PlaceDet  places={detail.post} key={index} />})
+        console.log(this.state.details[0]);
         return (
             <div>
-                {this.props.detailTrip(this.props.id)}
-                   {this.state.details.map((detail, index) => 
-                   <div key={index} > {detail} </div>)}
+                   {alldetail}
             </div>
         )
     }
