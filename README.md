@@ -10,6 +10,7 @@ Imagine that you want to travel to a city with a group of friends, but you do no
 * CSS 
 * w3-School
 * React-bootstrap
+* shared hosting
 
 ## Back-End 
  [Link to Back-End](https://git.generalassemb.ly/arelyas/Tripella_BackEnd)
