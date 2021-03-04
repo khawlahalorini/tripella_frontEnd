@@ -52,7 +52,7 @@ state = {
     })
     return (
       <div >
-            <h1>Wish List:</h1>
+            <h1 className="w3-large">Wish List:</h1>
         {WishList}
       </div>
 

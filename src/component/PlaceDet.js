@@ -63,10 +63,11 @@ export default class PlaceDet extends Component {
 
 <Router>
  
-  <div className=" w3-panel w3-card-4 w3-margin w3-round-large w3-light-grey" >  
+  <div className=" w3-panel w3-card-4 w3-padding-16 w3-margin w3-round-large w3-light-grey" >  
    <div className="w3-display-container ">
    {/* <button className="w3-bottomright w3-button w3-xlarge w3-right"onClick={ () => this.deletePlace(this.props.places.id)}>X</button> */}
     <PlacesPIc places={this.props.places} /> 
+   
       <h3 className=" w3-margin-top">{this.props.places.title}</h3>
       <hr />
         <p>{this.props.places.description}  </p> 
@@ -76,14 +77,14 @@ export default class PlaceDet extends Component {
 
        {this.props.isAuth ?(
          <div>
-          <Button className="w3-bottomright w3-button w3-xlarge w3-right"  style={{marginBottom:"10px"}}
-        onClick={() => this.setState({ModalShow: true})}>Add to trip</Button>
+          <Button className="w3-bottomright w3-button w3-xlarge w3-right  "  style={{marginBottom:"10px"}}
+        onClick={() => this.setState({ModalShow: true})}><spen className="w3-small ">Add to trip</spen></Button>
         <PopupDet 
         show={this.state.ModalShow}
         onHide={ModalClose} 
         postid={this.props.places.id}
         />
-      <Button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black" onClick={ () => this.addToWish(this.props.places.id)}>Add to wish </Button>  
+      <Button className="w3-bottomright w3-button w3-xlarge w3-right 3w-black" onClick={ () => this.addToWish(this.props.places.id)}><spen className="w3-small " >Add to wish</spen> </Button>  
        </div> ): null }
       
   </div>

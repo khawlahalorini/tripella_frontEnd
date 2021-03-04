@@ -33,7 +33,7 @@ const ARRAY = {
 {
     "id": 346364,
 "title": "Waterpark",
-"poster_path": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Marine_and_waterpark_aquaventure_waterpark.jpg",
+"poster_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Blue_Lagoon_Waterpark.jpg",
 "overview": "This water park is very cool",
 "info": "+966 11 11 1111",
 "contry":"Saudi Arabia",

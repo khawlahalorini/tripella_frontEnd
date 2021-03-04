@@ -83,6 +83,7 @@ export default class Navs extends Component {
         //       console.log(error);
         //     });
       };
+      
       // login 
     loginHandler = (userData) => {
         axios 
@@ -150,6 +151,7 @@ AddPostHandler = (post) =>{
 // folter 
   
     render() {
+      
       const { isAuth } = this.state;
 
       const successMessage = this.state.successMessage ?(
@@ -159,12 +161,12 @@ AddPostHandler = (post) =>{
         return (
     <Router>
     
-    <div class="w3-display-container w3-white"> 
+    <div className="w3-display-container w3-white"> 
 {/* <a  class="w3-left w3-section" href="/home">
     <img src={loogo} alt="logo" style={{width:"80%"}}/>
   </a> */}
   
-     <DropdownButton class="w3-display-left w3-container w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
+     <DropdownButton className="w3-display-left w3-container w3-xlarge " isAuth ={ isAuth } logout={this.logoutHandler}/> 
  
      
      {/* <div  class="w3-right w3-large w3-section">
