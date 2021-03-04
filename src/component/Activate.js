@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
-import  Alert  from "react-bootstrap";
+import  {Alert}  from "react-bootstrap";
+import axios from 'axios';
 
 
-export default class active extends Component {
+export default class Activate extends Component {
     state = { 
         successMessage:null,
         dangerMessage:null
     }
 
-    handler  = () => {
-        axios 
-            .post("tripella/user/active?email=" +param)
+    param = window.location.search;
+    componentDidMount(){
+      axios 
+            .get("tripella/user/active" +this.param)
             .then((response) => {
               console.log(response.data);
              this.setState({
@@ -20,11 +22,10 @@ export default class active extends Component {
             .catch((error) => {
               console.log(error);
             });
-      };
+      }
+    
+        
     render() {
-
-      var param = window.location.search;
-
         const successMessage = this.state.successMessage ?(
             <Alert variant="success">{this.state.successMessage}</Alert>): null;
           const dangerMessage = this.state.dangerMessage ? (

@@ -16,6 +16,8 @@ import { decode } from "jsonwebtoken";
 import { Alert } from "react-bootstrap";
 import NavsItem from './NavsItem.js';
 import { Container, Form, Button ,Row, Col} from 'react-bootstrap'
+import ResetPassword from './ResetPassword.js';
+import Activate from './Activate';
 
 export default class Navs extends Component {
 
@@ -107,7 +109,7 @@ export default class Navs extends Component {
               }
             })
             .catch((error) => {
-              console.log(error);
+              console.log(error.response.body);
               this.setState({
                 isAuth: true
               });
@@ -206,7 +208,17 @@ AddPostHandler = (post) =>{
             path="/wishList"
             component={() => <WishList />
             }
-          ></Route> 
+          ></Route>
+          <Route
+            path="/resetpassword"
+            component={() => <ResetPassword />
+            }
+          ></Route>
+          <Route
+            path="/activate"
+            component={() => <Activate />
+            }
+          ></Route>
           
         </div>
     </Router>
