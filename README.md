@@ -16,6 +16,11 @@ Imagine that you want to travel to a city with a group of friends, but you do no
  [Link to Back-End](https://git.generalassemb.ly/arelyas/Tripella_BackEnd)
 ## Link 
 [Tripella](http://tripella.net/home)
+## Feuture work
+* more filters
+* upload pictures 
+* Shared trips
+* add review 
 ## Images
 ### Wireframes
 ![ ](ReadMe/img/homePage.png)
