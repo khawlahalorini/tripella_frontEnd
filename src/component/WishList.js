@@ -5,27 +5,18 @@ import WishDet from './WishDet';
 import PlaceDet from './PlaceDet';
 
 export default class WishList extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
+state = {
       wishes: []
     }
-  }
 
   componentDidMount() {
-    axios.interceptors.request.use(req => {
-      req.headers.authorization = "Bearer " + localStorage.getItem("token");
-      return req;
-    });
-
     this.loadwishList();
   }
 
   loadwishList = () => {
     axios.get("/tripella/user/wishlist")
       .then(response => {
-        console.log(response)
+        console.log(response.data)
         this.setState({
           wishes: response.data
 
@@ -54,11 +45,14 @@ export default class WishList extends Component {
   //         })
   // }
   render() {
+
+    console.log(this.state.wishes.data);
     const WishList = this.state.wishes.map((wish, index) => {
       return <WishDet wish={wish} key={index} />
     })
     return (
       <div >
+            <h1>Wish List:</h1>
         {WishList}
       </div>
 

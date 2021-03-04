@@ -28,10 +28,9 @@ export default class AddPost extends Component {
                 <Form.Group>
                     <Form.Label>Choose Type</Form.Label>
                     <Form.Control as="select" name="type">
-                    <option>Restaurants</option>
-                    <option>Parks</option>
-                    <option>Amusement Park</option>
-                    <option>Markets</option>
+                    <option value="restaurant">Restaurants</option>
+                    <option value="parks"> Parks</option>
+                    <option value="market">Markets</option>
                     </Form.Control>
                 </Form.Group>
                  </Col>
