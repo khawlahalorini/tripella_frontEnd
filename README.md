@@ -21,6 +21,7 @@ Imagine that you want to travel to a city with a group of friends, but you do no
 * upload pictures 
 * Shared trips
 * add review 
+* linked with google maps
 ## Images
 ### Wireframes
 ![ ](ReadMe/img/homePage.png)
