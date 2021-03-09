@@ -17,7 +17,7 @@ export default class App extends Component {
   render() {
 
     axios.interceptors.request.use(req => {
-      req.baseURL="http://localhost:8080/"
+      req.baseURL="http://tripella-env.eba-taqnp43i.us-east-2.elasticbeanstalk.com/"
       return req;
     });
 
