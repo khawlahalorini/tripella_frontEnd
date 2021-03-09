@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/khawlahalorini/tripella_frontEnd/static/css/main.fffb7485.chunk.css",
+    "main.js": "/khawlahalorini/tripella_frontEnd/static/js/main.7093bb7e.chunk.js",
+    "main.js.map": "/khawlahalorini/tripella_frontEnd/static/js/main.7093bb7e.chunk.js.map",
+    "runtime-main.js": "/khawlahalorini/tripella_frontEnd/static/js/runtime-main.b6284e4e.js",
+    "runtime-main.js.map": "/khawlahalorini/tripella_frontEnd/static/js/runtime-main.b6284e4e.js.map",
+    "static/css/2.93d0dce1.chunk.css": "/khawlahalorini/tripella_frontEnd/static/css/2.93d0dce1.chunk.css",
+    "static/js/2.59259fc8.chunk.js": "/khawlahalorini/tripella_frontEnd/static/js/2.59259fc8.chunk.js",
+    "static/js/2.59259fc8.chunk.js.map": "/khawlahalorini/tripella_frontEnd/static/js/2.59259fc8.chunk.js.map",
+    "static/js/3.9ec1d979.chunk.js": "/khawlahalorini/tripella_frontEnd/static/js/3.9ec1d979.chunk.js",
+    "static/js/3.9ec1d979.chunk.js.map": "/khawlahalorini/tripella_frontEnd/static/js/3.9ec1d979.chunk.js.map",
+    "index.html": "/khawlahalorini/tripella_frontEnd/index.html",
+    "static/css/2.93d0dce1.chunk.css.map": "/khawlahalorini/tripella_frontEnd/static/css/2.93d0dce1.chunk.css.map",
+    "static/css/main.fffb7485.chunk.css.map": "/khawlahalorini/tripella_frontEnd/static/css/main.fffb7485.chunk.css.map",
+    "static/js/2.59259fc8.chunk.js.LICENSE.txt": "/khawlahalorini/tripella_frontEnd/static/js/2.59259fc8.chunk.js.LICENSE.txt",
+    "static/media/img1.fb6d8211.png": "/khawlahalorini/tripella_frontEnd/static/media/img1.fb6d8211.png",
+    "static/media/img2.f4c10e2d.jpg": "/khawlahalorini/tripella_frontEnd/static/media/img2.f4c10e2d.jpg",
+    "static/media/img5.b37dfca7.jpg": "/khawlahalorini/tripella_frontEnd/static/media/img5.b37dfca7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6284e4e.js",
+    "static/css/2.93d0dce1.chunk.css",
+    "static/js/2.59259fc8.chunk.js",
+    "static/css/main.fffb7485.chunk.css",
+    "static/js/main.7093bb7e.chunk.js"
+  ]
+}
